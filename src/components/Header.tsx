@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import { Calendar, Ticket, Map, Users } from "lucide-react";
+import { Calendar, Ticket, Map, Users, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const navItems = [
@@ -37,9 +38,17 @@ const Header = () => {
             ))}
           </nav>
           
-          <Button className="bg-primary hover:bg-primary/90">
-            Buy Tickets
-          </Button>
+          <div className="flex items-center space-x-3">
+            <Link to="/admin">
+              <Button variant="ghost" size="sm">
+                <Settings className="w-4 h-4 mr-2" />
+                Admin
+              </Button>
+            </Link>
+            <Button className="bg-primary hover:bg-primary/90">
+              Buy Tickets
+            </Button>
+          </div>
         </div>
       </div>
     </header>
