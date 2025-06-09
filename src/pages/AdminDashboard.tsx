@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import AdminHeader from "@/components/admin/AdminHeader";
 import BookedEventsManager from "@/components/admin/BookedEventsManager";
 import UpcomingEventsManager from "@/components/admin/UpcomingEventsManager";
+import BookingRequestsManager from "@/components/admin/BookingRequestsManager";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const AdminDashboard = () => {
@@ -16,11 +16,16 @@ const AdminDashboard = () => {
           <p className="text-muted-foreground">Manage events and bookings for Ulinzi Sports Complex</p>
         </div>
 
-        <Tabs defaultValue="booked-events" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2">
+        <Tabs defaultValue="booking-requests" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="booking-requests">Booking Requests</TabsTrigger>
             <TabsTrigger value="booked-events">Booked Events</TabsTrigger>
             <TabsTrigger value="upcoming-events">Upcoming Events</TabsTrigger>
           </TabsList>
+          
+          <TabsContent value="booking-requests">
+            <BookingRequestsManager />
+          </TabsContent>
           
           <TabsContent value="booked-events">
             <BookedEventsManager />
