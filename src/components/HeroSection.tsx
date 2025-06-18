@@ -1,39 +1,34 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[70vh] hero-gradient flex items-center">
-      <div className="absolute inset-0 bg-black/20"></div>
+    <section 
+      className="relative min-h-[70vh] bg-cover bg-center flex items-center"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&auto=format&fit=crop')"
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-600/70"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl">
-          <div className="mb-6 inline-flex items-center bg-white/20 rounded-full px-4 py-2 text-white backdrop-blur-sm">
-            <Calendar className="w-4 h-4 mr-2" />
-            <span className="text-sm font-medium">Next Event: June 10, 2024</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-            Experience Sports
-            <br />
-            <span className="text-accent">Like Never Before</span>
+        <div className="max-w-2xl text-white">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Experience World-Class Events
           </h1>
           
-          <p className="text-xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-            Join thousands of fans at Kenya's premier multipurpose stadium. From thrilling football matches to world-class concerts and community events.
+          <p className="text-xl mb-8 leading-relaxed opacity-95">
+            Ulinzi Sports Complex hosts premier sporting competitions, concerts, and community events in a state-of-the-art facility.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6">
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6">
               View Events
-              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
+              className="bg-primary border-2 border-white text-white hover:bg-primary/90 text-lg px-8 py-6"
             >
-              Virtual Tour
+              Book Tickets
             </Button>
           </div>
         </div>
