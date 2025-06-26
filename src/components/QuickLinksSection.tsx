@@ -30,6 +30,7 @@ const QuickLinksSection = () => {
   ];
 
   return (
+    <>
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -49,6 +50,41 @@ const QuickLinksSection = () => {
         </div>
       </div>
     </section>
+      <div className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6">
+            <a href="#" className="group flex flex-col items-center p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+              <div className="bg-blue-100 p-3 rounded-full">
+                <i className="fas fa-calendar-alt text-blue-600 text-2xl"></i>
+              </div>
+              <h3 className="mt-4 text-lg font-medium text-gray-900">Events</h3>
+              <p className="mt-1 text-sm text-gray-500 text-center">Browse upcoming events</p>
+            </a>
+            <a href="#" className="group flex flex-col items-center p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+              <div className="bg-blue-100 p-3 rounded-full">
+                <i className="fas fa-ticket-alt text-blue-600 text-2xl"></i>
+              </div>
+              <h3 className="mt-4 text-lg font-medium text-gray-900">Tickets</h3>
+              <p className="mt-1 text-sm text-gray-500 text-center">Purchase event tickets</p>
+            </a>
+            <a href="#" className="group flex flex-col items-center p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+              <div className="bg-blue-100 p-3 rounded-full">
+                <i className="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+              </div>
+              <h3 className="mt-4 text-lg font-medium text-gray-900">Facilities</h3>
+              <p className="mt-1 text-sm text-gray-500 text-center">Explore our venues</p>
+            </a>
+            <a href="#" className="group flex flex-col items-center p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
+              <div className="bg-blue-100 p-3 rounded-full">
+                <i className="fas fa-phone-alt text-blue-600 text-2xl"></i>
+              </div>
+              <h3 className="mt-4 text-lg font-medium text-gray-900">Contact</h3>
+              <p className="mt-1 text-sm text-gray-500 text-center">Get in touch with us</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      </>
   );
 };
 
