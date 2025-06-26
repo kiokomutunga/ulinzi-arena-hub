@@ -1,8 +1,11 @@
+
 import { useState } from "react";
 import AdminHeader from "@/components/admin/AdminHeader";
 import BookedEventsManager from "@/components/admin/BookedEventsManager";
 import UpcomingEventsManager from "@/components/admin/UpcomingEventsManager";
 import BookingRequestsManager from "@/components/admin/BookingRequestsManager";
+import KeyEventsManager from "@/components/admin/KeyEventsManager";
+import CalendarView from "@/components/admin/CalendarView";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const AdminDashboard = () => {
@@ -17,10 +20,12 @@ const AdminDashboard = () => {
         </div>
 
         <Tabs defaultValue="booking-requests" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="booking-requests">Booking Requests</TabsTrigger>
             <TabsTrigger value="booked-events">Booked Events</TabsTrigger>
             <TabsTrigger value="upcoming-events">Upcoming Events</TabsTrigger>
+            <TabsTrigger value="key-events">Key Events</TabsTrigger>
+            <TabsTrigger value="calendar">Calendar View</TabsTrigger>
           </TabsList>
           
           <TabsContent value="booking-requests">
@@ -33,6 +38,14 @@ const AdminDashboard = () => {
           
           <TabsContent value="upcoming-events">
             <UpcomingEventsManager />
+          </TabsContent>
+          
+          <TabsContent value="key-events">
+            <KeyEventsManager />
+          </TabsContent>
+          
+          <TabsContent value="calendar">
+            <CalendarView />
           </TabsContent>
         </Tabs>
       </div>
