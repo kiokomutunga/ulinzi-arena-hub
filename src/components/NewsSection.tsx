@@ -4,19 +4,25 @@ import { Card, CardContent } from "@/components/ui/card";
 const NewsSection = () => {
   const newsItems = [
     {
-      title: "Ulinzi Stars Secure Victory in Thrilling Match",
-      image: "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=400&auto=format&fit=crop",
-      category: "Sports"
+      title: 'Ulinzi Sports Complex to Host International Athletics Championship',
+      excerpt: 'The prestigious event will bring together athletes from over 20 countries competing in various track and field disciplines.',
+      date: 'June 5, 2025',
+      category: 'Athletics',
+      image: 'https://readdy.ai/api/search-image?query=modern%20athletics%20stadium%20with%20track%20and%20field%20athletes%20competing%20in%20a%20professional%20championship%20event%2C%20bright%20sunny%20day%2C%20clear%20blue%20sky%2C%20spectators%20in%20the%20background%2C%20professional%20sports%20photography%20style&width=600&height=400&seq=news1&orientation=landscape'
     },
     {
-      title: "New Training Facilities Now Open",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&auto=format&fit=crop",
-      category: "Facilities"
+      title: 'New State-of-the-Art Training Facilities Unveiled',
+      excerpt: 'The complex now features cutting-edge equipment and specialized training areas for elite athletes.',
+      date: 'June 3, 2025',
+      category: 'Facilities',
+      image: 'https://readdy.ai/api/search-image?query=modern%20sports%20training%20facility%20with%20high-tech%20equipment%2C%20athletes%20training%2C%20clean%20modern%20design%2C%20bright%20lighting%2C%20professional%20gym%20environment%2C%20wide%20angle%20view%20of%20spacious%20interior&width=600&height=400&seq=news2&orientation=landscape'
     },
     {
-      title: "Upcoming Concert Series Announced",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&auto=format&fit=crop",
-      category: "Entertainment"
+      title: 'Ticket Sales for Summer Concert Series Now Open',
+      excerpt: 'Secure your spot for the hottest musical performances coming to Ulinzi Sports Complex this summer.',
+      date: 'June 1, 2025',
+      category: 'Events',
+      image: 'https://readdy.ai/api/search-image?query=outdoor%20concert%20venue%20at%20sunset%20with%20stage%20lights%2C%20crowd%20of%20excited%20fans%2C%20professional%20concert%20photography%2C%20vibrant%20atmosphere%2C%20music%20festival%20setting%20in%20a%20sports%20stadium&width=600&height=400&seq=news3&orientation=landscape'
     }
   ];
 
@@ -46,9 +52,11 @@ const NewsSection = () => {
                 </div>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {news.title}
                 </h3>
+                <p className="text-sm text-gray-600 mb-3">{news.excerpt}</p>
+                <p className="text-xs text-gray-500">{news.date}</p>
               </CardContent>
             </Card>
           ))}

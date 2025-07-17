@@ -59,7 +59,7 @@ const LiveEventsSection = () => {
             <Card className="overflow-hidden">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=600&auto=format&fit=crop" 
+                  src="https://readdy.ai/api/search-image?query=live%20football%20match%20in%20progress%2C%20players%20on%20green%20pitch%2C%20stadium%20lights%2C%20excited%20crowd%2C%20professional%20sports%20photography%2C%20dynamic%20action%20shot%20of%20football%20game&width=500&height=300&seq=live1&orientation=landscape" 
                   alt="Live Match"
                   className="w-full h-48 object-cover"
                 />

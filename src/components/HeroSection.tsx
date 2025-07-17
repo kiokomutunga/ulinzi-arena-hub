@@ -4,24 +4,24 @@ import { ChevronLeft, ChevronRight, Play, Shield, MapPin, Users, Trophy } from "
 
 const heroImages = [
   {
-    url: "https://readdy.ai/api/search-image?query=aerial%20view%20modern%20sports%20stadium%20military%20parade%20ground%20with%20running%20track%20and%20green%20field%20in%20Kenya%20Lang'ata%20Nairobi&width=1920&height=1080&seq=1&orientation=landscape",
-    title: "Premier Military Sports Facility",
-    subtitle: "State-of-the-art 20,000-seater stadium with Olympic-grade athletics track"
+    url: "https://readdy.ai/api/search-image?query=modern%20sports%20stadium%20at%20sunset%20with%20dramatic%20lighting%2C%20football%20pitch%20visible%2C%20spectators%20in%20stands%2C%20professional%20sports%20venue%20with%20mountains%20in%20background%2C%20cinematic%20wide%20angle%20shot%20with%20perfect%20lighting&width=1440&height=600&seq=hero&orientation=landscape",
+    title: "Experience World-Class Events",
+    subtitle: "Ulinzi Sports Complex hosts premier sporting competitions, concerts, and community events"
   },
   {
-    url: "https://readdy.ai/api/search-image?query=football%20match%20in%20modern%20stadium%20with%20military%20personnel%20and%20packed%20stands%20Kenya%20defense%20forces&width=1920&height=1080&seq=2&orientation=landscape",
-    title: "Elite Football Competitions",
-    subtitle: "Home to Kenya Defence Forces FC and premier league matches"
+    url: "https://readdy.ai/api/search-image?query=modern%20football%20stadium%20with%20green%20pitch%2C%20professional%20lighting%2C%20packed%20stands%20with%20spectators%2C%20clear%20blue%20sky%2C%20aerial%20view%20of%20the%20entire%20stadium%20complex%20with%20perfect%20grass&width=1440&height=600&seq=facility1&orientation=landscape",
+    title: "FIFA Standard Main Pitch",
+    subtitle: "FIFA standard football field with seating for 35,000 spectators"
   },
   {
-    url: "https://readdy.ai/api/search-image?query=military%20parade%20ceremony%20in%20large%20stadium%20with%20Kenyan%20flag%20and%20soldiers%20in%20formation&width=1920&height=1080&seq=3&orientation=landscape",
-    title: "Military Heritage & Ceremonies",
-    subtitle: "Honoring tradition with precision and excellence"
+    url: "https://readdy.ai/api/search-image?query=professional%20running%20track%20with%20red%20surface%2C%20white%20lane%20markings%2C%20field%20event%20areas%2C%20stadium%20seating%2C%20perfect%20condition%2C%20sunny%20day%2C%20empty%20track%20ready%20for%20competition&width=1440&height=600&seq=facility2&orientation=landscape",
+    title: "IAAF Certified Athletics Track",
+    subtitle: "IAAF certified 400m track with 8 lanes and field event areas"
   },
   {
-    url: "https://readdy.ai/api/search-image?query=athletics%20track%20and%20field%20competition%20Olympic%20standard%20stadium%20with%20athletes%20running&width=1920&height=1080&seq=4&orientation=landscape",
-    title: "Athletics Excellence",
-    subtitle: "Olympic-standard track hosting national and international competitions"
+    url: "https://readdy.ai/api/search-image?query=modern%20indoor%20sports%20arena%20with%20high%20ceiling%2C%20professional%20lighting%2C%20tiered%20seating%2C%20polished%20wooden%20floor%2C%20basketball%20court%20markings%2C%20wide%20angle%20view%20showing%20the%20entire%20arena%20space&width=1440&height=600&seq=facility3&orientation=landscape",
+    title: "Multi-Purpose Indoor Arena",
+    subtitle: "Multi-purpose indoor venue with 10,000 seating capacity"
   }
 ];
 
