@@ -8,49 +8,55 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 220 85% 35%;
-    --primary-foreground: 210 40% 98%;
+    /* Patriotic Military Colors */
+    --primary: 0 0% 5%; /* Deep Black for military professionalism */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 84% 60%; /* Bold Red for Kenya flag */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 120 60% 20%; /* Deep Green for Kenya flag */
+    --muted-foreground: 0 0% 98%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 100% 50%; /* Gold for military excellence */
+    --accent-foreground: 0 0% 5%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 45 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-foreground: 0 0% 5%;
+    --sidebar-primary: 0 0% 5%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 5%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 45 100% 50%;
 
-    /* Custom Sports Complex Colors */
-    --sports: 10 79% 58%;
-    --entertainment: 280 89% 60%;
-    --community: 142 76% 36%;
-    --corporate: 220 85% 35%;
+    /* Ulinzi Sports Complex Military Heritage Colors */
+    --military-black: 0 0% 5%;
+    --kenya-red: 0 84% 60%;
+    --kenya-green: 120 60% 20%;
+    --military-gold: 45 100% 50%;
+    --glass-overlay: 0 0% 0%;
+    
+    /* Dynamic gradients */
+    --hero-gradient: linear-gradient(135deg, hsl(var(--military-black)) 0%, hsl(var(--kenya-red)) 50%, hsl(var(--military-gold)) 100%);
+    --glass-gradient: linear-gradient(135deg, hsla(var(--military-black), 0.8) 0%, hsla(var(--kenya-red), 0.6) 100%);
   }
 
   .dark {
@@ -95,13 +101,59 @@
 }
 
 @layer utilities {
-  .hero-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  .military-hero-gradient {
+    background: var(--hero-gradient);
   }
   
-  .glass-effect {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    background: hsla(var(--glass-overlay), 0.1);
+    border-bottom: 1px solid hsla(var(--military-gold), 0.2);
+  }
+  
+  .military-glass {
+    backdrop-filter: blur(15px);
+    background: var(--glass-gradient);
+    border: 1px solid hsla(var(--military-gold), 0.3);
+  }
+
+  .counter-animation {
+    animation: countUp 2s ease-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 }

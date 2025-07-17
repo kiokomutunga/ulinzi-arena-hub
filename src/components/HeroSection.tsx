@@ -1,35 +1,189 @@
-
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, Play, Shield, MapPin, Users, Trophy } from "lucide-react";
+
+const heroImages = [
+  {
+    url: "https://readdy.ai/api/search-image?query=aerial%20view%20modern%20sports%20stadium%20military%20parade%20ground%20with%20running%20track%20and%20green%20field%20in%20Kenya%20Lang'ata%20Nairobi&width=1920&height=1080&seq=1&orientation=landscape",
+    title: "Premier Military Sports Facility",
+    subtitle: "State-of-the-art 20,000-seater stadium with Olympic-grade athletics track"
+  },
+  {
+    url: "https://readdy.ai/api/search-image?query=football%20match%20in%20modern%20stadium%20with%20military%20personnel%20and%20packed%20stands%20Kenya%20defense%20forces&width=1920&height=1080&seq=2&orientation=landscape",
+    title: "Elite Football Competitions",
+    subtitle: "Home to Kenya Defence Forces FC and premier league matches"
+  },
+  {
+    url: "https://readdy.ai/api/search-image?query=military%20parade%20ceremony%20in%20large%20stadium%20with%20Kenyan%20flag%20and%20soldiers%20in%20formation&width=1920&height=1080&seq=3&orientation=landscape",
+    title: "Military Heritage & Ceremonies",
+    subtitle: "Honoring tradition with precision and excellence"
+  },
+  {
+    url: "https://readdy.ai/api/search-image?query=athletics%20track%20and%20field%20competition%20Olympic%20standard%20stadium%20with%20athletes%20running&width=1920&height=1080&seq=4&orientation=landscape",
+    title: "Athletics Excellence",
+    subtitle: "Olympic-standard track hosting national and international competitions"
+  }
+];
+
+const stats = [
+  { number: "20,000", label: "Stadium Capacity", icon: Users },
+  { number: "50+", label: "Events Hosted", icon: Trophy },
+  { number: "15", label: "Years of Service", icon: Shield },
+  { number: "24/7", label: "Security Coverage", icon: Shield },
+];
 
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  useEffect(() => {
+    if (isPlaying) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [isPlaying]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
   return (
-    <section className="relative min-h-screen bg-cover bg-center flex items-center">
-      <div className="relative bg-blue-800 overflow-hidden min-h-screen w-full">
-        <div className="absolute inset-0">
-          <img 
-            className="w-full h-full object-cover object-center" 
-            src="https://readdy.ai/api/search-image?query=modern%20sports%20stadium%20at%20sunset%20with%20dramatic%20lighting%2C%20football%20pitch%20visible%2C%20spectators%20in%20stands%2C%20professional%20sports%20venue%20with%20mountains%20in%20background%2C%20cinematic%20wide%20angle%20shot%20with%20perfect%20lighting&width=1920&height=1080&seq=hero&orientation=landscape" 
-            alt="Ulinzi Sports Complex" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-black/50"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto py-32 px-4 sm:py-48 sm:px-6 lg:px-8 min-h-screen flex items-center">
-          <div className="md:w-2/3 lg:w-1/2">
-            <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl leading-tight">
-              Experience World-Class Events
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Dynamic Background Slideshow */}
+      <div className="absolute inset-0">
+        {heroImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img 
+              className="w-full h-full object-cover object-center" 
+              src={image.url}
+              alt={image.title}
+            />
+            <div className="absolute inset-0 military-hero-gradient opacity-70"></div>
+          </div>
+        ))}
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Location Badge */}
+            <div className="inline-flex items-center space-x-2 bg-military-black/20 backdrop-blur-sm border border-military-gold/30 rounded-full px-4 py-2 mb-8">
+              <MapPin className="h-4 w-4 text-military-gold" />
+              <span className="text-primary-foreground font-medium">Lang'ata, Nairobi</span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-primary-foreground mb-6 fade-in-up text-shadow">
+              ULINZI SPORTS
+              <br />
+              <span className="text-military-gold">COMPLEX</span>
             </h1>
-            <p className="mt-8 text-xl text-blue-100 max-w-3xl leading-relaxed">
-              Ulinzi Sports Complex hosts premier sporting competitions, concerts, and community events in a state-of-the-art facility designed for unforgettable experiences.
+
+            {/* Dynamic Subtitle */}
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-4 slide-up font-medium">
+              {heroImages[currentSlide].subtitle}
             </p>
-            <div className="mt-12 flex flex-wrap gap-6">
-              <a href="#events" className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg text-blue-700 bg-white hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer">
-                View Events
+
+            {/* Military Heritage Statement */}
+            <div className="text-lg text-military-gold mb-12 fade-in-up font-medium">
+              "Excellence Through Discipline & Commitment"
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 fade-in-up">
+              <a href="#events" className="group">
+                <Button size="lg" className="bg-military-gold text-military-black hover:bg-military-gold/90 font-bold px-8 py-4 text-lg rounded-xl hover-lift">
+                  <Trophy className="mr-2 h-5 w-5" />
+                  View Events
+                </Button>
               </a>
-              <a href="#booking" className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer">
-                Book Tickets
+              <a href="#booking" className="group">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-military-black font-bold px-8 py-4 text-lg rounded-xl hover-lift"
+                >
+                  <Shield className="mr-2 h-5 w-5" />
+                  Book Facility
+                </Button>
               </a>
             </div>
+
+            {/* Statistics Counter */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 counter-animation">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center military-glass rounded-xl p-6 hover-lift">
+                  <stat.icon className="h-8 w-8 text-military-gold mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-primary-foreground mb-1">{stat.number}</div>
+                  <div className="text-sm text-primary-foreground/80 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Slideshow Controls */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex items-center space-x-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={prevSlide}
+            className="text-primary-foreground hover:bg-military-gold/20 rounded-full"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+
+          <div className="flex space-x-2">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentSlide ? 'bg-military-gold' : 'bg-primary-foreground/50'
+                }`}
+              />
+            ))}
+          </div>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={nextSlide}
+            className="text-primary-foreground hover:bg-military-gold/20 rounded-full"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="text-primary-foreground hover:bg-military-gold/20 rounded-full ml-2"
+          >
+            <Play className={`h-5 w-5 ${isPlaying ? 'opacity-50' : 'opacity-100'}`} />
+          </Button>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 right-8 z-20">
+        <div className="flex flex-col items-center space-y-2 text-primary-foreground/70">
+          <span className="text-sm font-medium rotate-90 origin-center">SCROLL</span>
+          <div className="w-px h-12 bg-primary-foreground/50"></div>
         </div>
       </div>
     </section>

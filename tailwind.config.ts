@@ -63,10 +63,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				sports: 'hsl(var(--sports))',
-				entertainment: 'hsl(var(--entertainment))',
-				community: 'hsl(var(--community))',
-				corporate: 'hsl(var(--corporate))'
+				'military-black': 'hsl(var(--military-black))',
+				'kenya-red': 'hsl(var(--kenya-red))',
+				'kenya-green': 'hsl(var(--kenya-green))',
+				'military-gold': 'hsl(var(--military-gold))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
