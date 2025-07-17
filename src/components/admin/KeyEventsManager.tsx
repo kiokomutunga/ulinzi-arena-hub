@@ -57,7 +57,7 @@ const KeyEventsManager = () => {
       status: "scheduled",
       featured: false
     }
-  ];
+  ]);
 
   const getCategoryColor = (category: string) => {
     switch (category) {
