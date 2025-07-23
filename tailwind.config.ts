@@ -63,10 +63,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'military-black': 'hsl(var(--military-black))',
-				'kenya-red': 'hsl(var(--kenya-red))',
-				'kenya-green': 'hsl(var(--kenya-green))',
-				'military-gold': 'hsl(var(--military-gold))'
+				// Official Defense Colors
+				'defense-navy': 'hsl(var(--defense-navy))',
+				'defense-silver': 'hsl(var(--defense-silver))',
+				'defense-gold': 'hsl(var(--defense-gold))',
+				'defense-crimson': 'hsl(var(--defense-crimson))',
+				'defense-forest': 'hsl(var(--defense-forest))',
+				'defense-slate': 'hsl(var(--defense-slate))',
+				'defense-khaki': 'hsl(var(--defense-khaki))',
+				// Legacy support
+				'military-black': 'hsl(var(--defense-navy))',
+				'kenya-red': 'hsl(var(--defense-crimson))',
+				'kenya-green': 'hsl(var(--defense-forest))',
+				'military-gold': 'hsl(var(--defense-gold))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -89,13 +98,22 @@ export default {
 				'slide-in': {
 					'0%': { transform: 'translateX(-100%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				'march-in': {
+					'0%': { transform: 'translateX(-100%)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'slide-in': 'slide-in 0.5s ease-out'
+				'slide-in': 'slide-in 0.5s ease-out',
+				'march-in': 'march-in 0.8s ease-out'
+			},
+			fontFamily: {
+				'military': ['Inter', 'Roboto', 'sans-serif'],
+				'display': ['Inter', 'system-ui', 'sans-serif']
 			}
 		}
 	},

@@ -3,90 +3,93 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ulinzi Sports Complex Design System */
+/* Ulinzi Sports Complex - Official Defense Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 5%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover-foreground: 220 15% 15%;
 
-    /* Patriotic Military Colors */
-    --primary: 0 0% 5%; /* Deep Black for military professionalism */
+    /* Official Defense Colors */
+    --primary: 220 25% 12%; /* Defense Navy */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 84% 60%; /* Bold Red for Kenya flag */
+    --secondary: 0 75% 45%; /* Defense Crimson */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 120 60% 20%; /* Deep Green for Kenya flag */
+    --muted: 140 35% 25%; /* Defense Forest */
     --muted-foreground: 0 0% 98%;
 
-    --accent: 45 100% 50%; /* Gold for military excellence */
-    --accent-foreground: 0 0% 5%;
+    --accent: 45 85% 55%; /* Defense Gold */
+    --accent-foreground: 220 25% 12%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 75% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 95%;
-    --ring: 45 100% 50%;
+    --border: 220 15% 85%;
+    --input: 220 15% 95%;
+    --ring: 45 85% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 5%;
-    --sidebar-primary: 0 0% 5%;
+    --sidebar-foreground: 220 15% 15%;
+    --sidebar-primary: 220 25% 12%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 95%;
-    --sidebar-accent-foreground: 0 0% 5%;
-    --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 45 100% 50%;
+    --sidebar-accent: 220 15% 95%;
+    --sidebar-accent-foreground: 220 15% 15%;
+    --sidebar-border: 220 15% 85%;
+    --sidebar-ring: 45 85% 55%;
 
-    /* Ulinzi Sports Complex Military Heritage Colors */
-    --military-black: 0 0% 5%;
-    --kenya-red: 0 84% 60%;
-    --kenya-green: 120 60% 20%;
-    --military-gold: 45 100% 50%;
-    --glass-overlay: 0 0% 0%;
+    /* Official Defense Color System */
+    --defense-navy: 220 25% 12%;        /* Primary - Deep Navy Blue */
+    --defense-silver: 210 8% 75%;       /* Secondary - Military Silver */
+    --defense-gold: 45 85% 55%;         /* Accent - Honor Gold */
+    --defense-crimson: 0 75% 45%;       /* Alert - Military Crimson */
+    --defense-forest: 140 35% 25%;      /* Success - Forest Green */
+    --defense-slate: 220 15% 35%;       /* Neutral - Slate Gray */
+    --defense-khaki: 35 25% 65%;        /* Utility - Field Khaki */
     
-    /* Dynamic gradients */
-    --hero-gradient: linear-gradient(135deg, hsl(var(--military-black)) 0%, hsl(var(--kenya-red)) 50%, hsl(var(--military-gold)) 100%);
-    --glass-gradient: linear-gradient(135deg, hsla(var(--military-black), 0.8) 0%, hsla(var(--kenya-red), 0.6) 100%);
+    /* Professional gradients for defense theme */
+    --defense-hero-gradient: linear-gradient(135deg, hsl(var(--defense-navy)) 0%, hsl(var(--defense-slate)) 50%, hsl(var(--defense-gold)) 100%);
+    --defense-glass-gradient: linear-gradient(135deg, hsla(var(--defense-navy), 0.9) 0%, hsla(var(--defense-slate), 0.7) 100%);
+    --defense-command-gradient: linear-gradient(90deg, hsl(var(--defense-navy)) 0%, hsl(var(--defense-crimson)) 100%);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 220 25% 8%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 220 25% 8%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 220 25% 8%;
     --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
+    --primary-foreground: 220 25% 12%;
+    --secondary: 220 25% 15%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --muted: 220 25% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 220 25% 15%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62% 30%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 25% 15%;
+    --input: 220 25% 15%;
+    --ring: 212 26% 83%;
+    --sidebar-background: 220 25% 5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-primary-foreground: 220 25% 12%;
+    --sidebar-accent: 220 25% 10%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 25% 15%;
+    --sidebar-ring: 45 85% 55%;
   }
 }
 
@@ -96,25 +99,38 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-military;
   }
 }
 
 @layer utilities {
-  .military-hero-gradient {
-    background: var(--hero-gradient);
+  .defense-hero-gradient {
+    background: var(--defense-hero-gradient);
   }
   
-  .glass-nav {
+  .defense-glass-nav {
     backdrop-filter: blur(20px);
-    background: hsla(var(--glass-overlay), 0.1);
-    border-bottom: 1px solid hsla(var(--military-gold), 0.2);
+    background: hsla(var(--defense-navy), 0.15);
+    border-bottom: 1px solid hsla(var(--defense-gold), 0.3);
+    box-shadow: 0 8px 32px hsla(var(--defense-navy), 0.1);
   }
   
-  .military-glass {
+  .defense-glass {
     backdrop-filter: blur(15px);
-    background: var(--glass-gradient);
-    border: 1px solid hsla(var(--military-gold), 0.3);
+    background: var(--defense-glass-gradient);
+    border: 1px solid hsla(var(--defense-gold), 0.3);
+    box-shadow: 0 8px 32px hsla(var(--defense-navy), 0.1);
+  }
+
+  .defense-command-gradient {
+    background: var(--defense-command-gradient);
+  }
+
+  .defense-insignia {
+    background: linear-gradient(45deg, hsl(var(--defense-gold)) 0%, hsl(var(--defense-silver)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .counter-animation {
@@ -127,6 +143,10 @@
 
   .fade-in-up {
     animation: fadeInUp 1s ease-out;
+  }
+
+  .march-in {
+    animation: march-in 0.8s ease-out;
   }
 
   @keyframes countUp {
@@ -144,16 +164,26 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  .text-shadow-strong {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   }
 
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .hover-lift-defense {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  .hover-lift-defense:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px hsla(var(--defense-navy), 0.2);
+  }
+
+  .defense-border {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, hsl(var(--defense-gold)), hsl(var(--defense-silver))) 1;
+  }
+
+  .military-precision {
+    letter-spacing: 0.05em;
+    font-weight: 600;
   }
 }

@@ -1,8 +1,9 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Menu, Calendar, Trophy, Star, MapPin, Clock, Shield, ChevronDown, Users } from "lucide-react";
+import { Menu, Calendar, Trophy, Star, MapPin, Clock, Shield, ChevronDown, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // Dynamic sample data for dropdowns
@@ -32,122 +33,132 @@ const Header = () => {
 
   return (
     <>
-      {/* Military Heritage Banner */}
-      <div className="bg-military-black text-military-gold py-2 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center text-sm font-medium">
-          <Shield className="h-4 w-4 mr-2" />
-          <span>Ulinzi Sports Complex - Excellence Through Discipline & Commitment</span>
+      {/* Official Defense Command Banner */}
+      <div className="defense-command-gradient text-white py-3 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center text-sm military-precision">
+          <Award className="h-5 w-5 mr-3" />
+          <span className="defense-insignia font-bold">KENYA DEFENCE FORCES</span>
+          <span className="mx-4 text-defense-gold">•</span>
+          <span>ULINZI SPORTS COMPLEX - EXCELLENCE THROUGH DISCIPLINE</span>
         </div>
       </div>
 
-      <header className="fixed top-8 left-0 right-0 z-50 w-full">
-        <div className="glass-nav mx-4 rounded-xl">
-          <div className="container mx-auto flex h-16 items-center justify-between px-6">
-            {/* Logo */}
+      <header className="fixed top-12 left-0 right-0 z-50 w-full">
+        <div className="defense-glass-nav mx-4 rounded-lg shadow-2xl">
+          <div className="container mx-auto flex h-20 items-center justify-between px-8">
+            {/* Professional Military Logo */}
             <div className="flex items-center space-x-4">
               <div className="relative">
-                <Shield className="h-10 w-10 text-military-gold" />
-                <div className="absolute -top-1 -right-1 h-3 w-3 bg-kenya-red rounded-full"></div>
+                <div className="w-12 h-12 defense-glass rounded-full flex items-center justify-center">
+                  <Shield className="h-8 w-8 text-defense-gold" />
+                </div>
+                <div className="absolute -top-1 -right-1 h-4 w-4 bg-defense-crimson rounded-full border-2 border-white"></div>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-primary-foreground">Ulinzi Sports Complex</h1>
-                <p className="text-xs text-military-gold">Lang'ata, Nairobi</p>
+                <h1 className="text-2xl font-bold text-primary-foreground military-precision">
+                  ULINZI SPORTS COMPLEX
+                </h1>
+                <p className="text-sm text-defense-gold font-medium">KENYA DEFENCE FORCES FACILITY</p>
               </div>
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Professional Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               <NavigationMenu>
-                <NavigationMenuList className="space-x-6">
+                <NavigationMenuList className="space-x-8">
                   {/* Home */}
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-military-gold transition-colors cursor-pointer font-medium">
-                      Home
+                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                      HOME
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   {/* About */}
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-military-gold transition-colors cursor-pointer font-medium">
-                      About
+                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                      ABOUT
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   {/* Events Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary-foreground hover:text-military-gold transition-colors font-medium">
-                      Events & Fixtures <ChevronDown className="ml-1 h-4 w-4" />
+                    <NavigationMenuTrigger className="text-primary-foreground hover:text-defense-gold transition-colors font-semibold military-precision">
+                      OPERATIONS <ChevronDown className="ml-1 h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="p-6 w-[500px] bg-card border border-military-gold/20">
-                        <h3 className="font-bold text-lg mb-4 text-military-black">Current Events</h3>
+                      <div className="p-6 w-[550px] defense-glass border border-defense-gold/30 rounded-lg">
+                        <h3 className="font-bold text-lg mb-4 text-defense-navy">CURRENT OPERATIONS</h3>
                         <div className="grid gap-4">
                           {currentEvents.map((event, index) => (
-                            <div key={index} className="flex items-start space-x-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                              <div className={`w-3 h-3 rounded-full mt-2 ${event.status === 'live' ? 'bg-kenya-red animate-pulse' : 'bg-military-gold'}`}></div>
+                            <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-defense-navy/10 transition-colors">
+                              <div className={`w-3 h-3 rounded-full mt-2 ${event.status === 'live' ? 'bg-defense-crimson animate-pulse' : 'bg-defense-gold'}`}></div>
                               <div className="flex-1">
-                                <p className="font-semibold text-military-black">{event.title}</p>
-                                <div className="flex items-center space-x-4 text-sm text-muted-foreground mt-1">
+                                <p className="font-semibold text-defense-navy military-precision">{event.title}</p>
+                                <div className="flex items-center space-x-4 text-sm text-defense-slate mt-1">
                                   <span className="flex items-center"><Calendar className="h-3 w-3 mr-1" />{event.date}</span>
                                   <span className="flex items-center"><Clock className="h-3 w-3 mr-1" />{event.time}</span>
                                   <span className="flex items-center"><MapPin className="h-3 w-3 mr-1" />{event.venue}</span>
                                 </div>
                               </div>
-                              {event.status === 'live' && <span className="bg-kenya-red text-white text-xs px-2 py-1 rounded-full">LIVE</span>}
+                              {event.status === 'live' && (
+                                <span className="bg-defense-crimson text-white text-xs px-3 py-1 rounded-full font-bold">
+                                  LIVE
+                                </span>
+                              )}
                             </div>
                           ))}
                         </div>
-                        <Button className="w-full mt-4 bg-military-black hover:bg-military-gold hover:text-military-black">
-                          View All Events
+                        <Button className="w-full mt-6 bg-defense-navy hover:bg-defense-slate text-white font-bold">
+                          VIEW ALL OPERATIONS
                         </Button>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  {/* News Dropdown */}
+                  {/* Intelligence (News) Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary-foreground hover:text-military-gold transition-colors font-medium">
-                      News <ChevronDown className="ml-1 h-4 w-4" />
+                    <NavigationMenuTrigger className="text-primary-foreground hover:text-defense-gold transition-colors font-semibold military-precision">
+                      INTELLIGENCE <ChevronDown className="ml-1 h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="p-6 w-[400px] bg-card border border-military-gold/20">
-                        <h3 className="font-bold text-lg mb-4 text-military-black">Latest Updates</h3>
+                      <div className="p-6 w-[450px] defense-glass border border-defense-gold/30 rounded-lg">
+                        <h3 className="font-bold text-lg mb-4 text-defense-navy">LATEST INTELLIGENCE</h3>
                         <div className="space-y-4">
                           {liveNews.map((item, index) => (
-                            <div key={index} className="border-l-4 border-kenya-red pl-4 py-2 hover:bg-muted/50 rounded-r-lg transition-colors">
+                            <div key={index} className="border-l-4 border-defense-crimson pl-4 py-2 hover:bg-defense-navy/5 rounded-r-lg transition-colors">
                               <div className="flex items-center justify-between">
-                                <span className={`text-xs px-2 py-1 rounded-full ${item.urgent ? 'bg-kenya-red text-white' : 'bg-military-gold text-military-black'}`}>
+                                <span className={`text-xs px-3 py-1 rounded-full font-bold ${item.urgent ? 'bg-defense-crimson text-white' : 'bg-defense-gold text-defense-navy'}`}>
                                   {item.category}
                                 </span>
-                                {item.urgent && <span className="text-xs text-kenya-red font-bold">URGENT</span>}
+                                {item.urgent && <span className="text-xs text-defense-crimson font-bold">PRIORITY</span>}
                               </div>
-                              <p className="font-medium text-military-black mt-1">{item.title}</p>
-                              <p className="text-sm text-muted-foreground">{item.date}</p>
+                              <p className="font-semibold text-defense-navy mt-2 military-precision">{item.title}</p>
+                              <p className="text-sm text-defense-slate">{item.date}</p>
                             </div>
                           ))}
                         </div>
-                        <Button variant="outline" className="w-full mt-4 border-military-gold text-military-black hover:bg-military-gold">
-                          Read All News
+                        <Button variant="outline" className="w-full mt-6 border-defense-gold text-defense-navy hover:bg-defense-gold hover:text-defense-navy font-bold">
+                          ACCESS FULL BRIEFING
                         </Button>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  {/* Fan Zone Dropdown */}
+                  {/* Personnel Zone */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary-foreground hover:text-military-gold transition-colors font-medium">
-                      Fan Zone <ChevronDown className="ml-1 h-4 w-4" />
+                    <NavigationMenuTrigger className="text-primary-foreground hover:text-defense-gold transition-colors font-semibold military-precision">
+                      PERSONNEL <ChevronDown className="ml-1 h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="p-6 w-[350px] bg-card border border-military-gold/20">
-                        <h3 className="font-bold text-lg mb-4 text-military-black">Fan Experience</h3>
+                      <div className="p-6 w-[400px] defense-glass border border-defense-gold/30 rounded-lg">
+                        <h3 className="font-bold text-lg mb-4 text-defense-navy">PERSONNEL SERVICES</h3>
                         <div className="grid gap-3">
                           {fanZoneFeatures.map((item, index) => (
-                            <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
-                              <item.icon className="h-6 w-6 text-military-gold mt-1" />
+                            <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-defense-navy/5 transition-colors cursor-pointer">
+                              <item.icon className="h-6 w-6 text-defense-gold mt-1" />
                               <div>
-                                <p className="font-semibold text-military-black">{item.title}</p>
-                                <p className="text-sm text-muted-foreground">{item.description}</p>
+                                <p className="font-semibold text-defense-navy military-precision">{item.title}</p>
+                                <p className="text-sm text-defense-slate">{item.description}</p>
                               </div>
                             </div>
                           ))}
@@ -158,32 +169,32 @@ const Header = () => {
 
                   {/* Simple Links */}
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-military-gold transition-colors cursor-pointer font-medium">
-                      Facilities
+                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                      FACILITIES
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-military-gold transition-colors cursor-pointer font-medium">
-                      Book Appointment
+                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                      BOOKING
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-military-gold transition-colors cursor-pointer font-medium">
-                      Contact Us
+                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                      CONTACT
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <div className="flex items-center space-x-3">
-                <Button variant="outline" size="sm" className="border-military-gold text-primary-foreground hover:bg-military-gold hover:text-military-black">
-                  Sign In
+              <div className="flex items-center space-x-4">
+                <Button variant="outline" size="sm" className="border-defense-gold text-primary-foreground hover:bg-defense-gold hover:text-defense-navy font-bold">
+                  PERSONNEL LOGIN
                 </Button>
                 <Link to="/admin">
-                  <Button size="sm" className="bg-kenya-red hover:bg-kenya-red/80">
-                    Admin
+                  <Button size="sm" className="bg-defense-crimson hover:bg-defense-crimson/80 text-white font-bold">
+                    COMMAND CENTER
                   </Button>
                 </Link>
               </div>
@@ -196,22 +207,24 @@ const Header = () => {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80 bg-military-black text-primary-foreground">
+              <SheetContent side="right" className="w-80 bg-defense-navy text-primary-foreground">
                 <nav className="flex flex-col space-y-6 mt-8">
-                  <a href="#" className="text-lg font-medium hover:text-military-gold transition-colors">Home</a>
-                  <a href="#" className="text-lg font-medium hover:text-military-gold transition-colors">About</a>
-                  <a href="#events" className="text-lg font-medium hover:text-military-gold transition-colors">Events & Fixtures</a>
-                  <a href="#news" className="text-lg font-medium hover:text-military-gold transition-colors">News</a>
-                  <a href="#fanzone" className="text-lg font-medium hover:text-military-gold transition-colors">Fan Zone</a>
-                  <a href="#facilities" className="text-lg font-medium hover:text-military-gold transition-colors">Facilities</a>
-                  <a href="#booking" className="text-lg font-medium hover:text-military-gold transition-colors">Book Appointment</a>
-                  <a href="#contact" className="text-lg font-medium hover:text-military-gold transition-colors">Contact Us</a>
-                  <div className="pt-6 border-t border-military-gold/30">
-                    <Button variant="outline" className="w-full mb-3 border-military-gold text-primary-foreground hover:bg-military-gold hover:text-military-black">
-                      Sign In
+                  <a href="#" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">HOME</a>
+                  <a href="#" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">ABOUT</a>
+                  <a href="#events" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">OPERATIONS</a>
+                  <a href="#news" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">INTELLIGENCE</a>
+                  <a href="#personnel" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">PERSONNEL</a>
+                  <a href="#facilities" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">FACILITIES</a>
+                  <a href="#booking" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">BOOKING</a>
+                  <a href="#contact" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">CONTACT</a>
+                  <div className="pt-6 border-t border-defense-gold/30">
+                    <Button variant="outline" className="w-full mb-3 border-defense-gold text-primary-foreground hover:bg-defense-gold hover:text-defense-navy font-bold">
+                      PERSONNEL LOGIN
                     </Button>
                     <Link to="/admin">
-                      <Button className="w-full bg-kenya-red hover:bg-kenya-red/80">Admin</Button>
+                      <Button className="w-full bg-defense-crimson hover:bg-defense-crimson/80 font-bold">
+                        COMMAND CENTER
+                      </Button>
                     </Link>
                   </div>
                 </nav>
