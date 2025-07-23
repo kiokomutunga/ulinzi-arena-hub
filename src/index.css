@@ -3,92 +3,86 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ulinzi Sports Complex - Official Military Design System */
+/* Ulinzi Sports Complex - Professional Military Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 5%;
+    --foreground: 0 0% 3%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card-foreground: 0 0% 3%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover-foreground: 0 0% 3%;
 
-    /* Official Military Colors */
-    --primary: 0 0% 5%; /* Military Black */
+    /* Official Military Colors - Reduced Palette */
+    --primary: 0 0% 3%; /* Deep Black */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 85% 35%; /* Military Maroon */
+    --secondary: 0 70% 25%; /* Professional Maroon */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 200 100% 85%; /* Military Light Blue */
-    --muted-foreground: 0 0% 5%;
+    --accent: 200 95% 90%; /* Subtle Light Blue */
+    --accent-foreground: 0 0% 3%;
 
-    --accent: 200 100% 70%; /* Accent Light Blue */
-    --accent-foreground: 0 0% 5%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --destructive: 0 85% 35%;
+    --destructive: 0 70% 25%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 85%;
-    --input: 0 0% 95%;
-    --ring: 200 100% 70%;
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 200 95% 90%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 5%;
-    --sidebar-primary: 0 0% 5%;
+    --sidebar-foreground: 0 0% 3%;
+    --sidebar-primary: 0 0% 3%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 95%;
-    --sidebar-accent-foreground: 0 0% 5%;
-    --sidebar-border: 0 0% 85%;
-    --sidebar-ring: 200 100% 70%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 3%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 200 95% 90%;
 
-    /* Official Military Color System */
-    --military-black: 0 0% 5%;            /* Primary - Deep Black */
-    --military-maroon: 0 85% 35%;         /* Secondary - Military Maroon */
-    --military-light-blue: 200 100% 85%;  /* Tertiary - Light Blue */
-    --military-dark-blue: 200 100% 20%;   /* Darker Blue for contrast */
-    --military-silver: 0 0% 75%;          /* Neutral - Silver */
-    --military-white: 0 0% 98%;           /* White */
-    
-    /* Professional gradients for military theme */
-    --military-hero-gradient: linear-gradient(135deg, hsl(var(--military-black)) 0%, hsl(var(--military-maroon)) 50%, hsl(var(--military-dark-blue)) 100%);
-    --military-glass-gradient: linear-gradient(135deg, hsla(var(--military-black), 0.95) 0%, hsla(var(--military-maroon), 0.85) 100%);
-    --military-command-gradient: linear-gradient(90deg, hsl(var(--military-black)) 0%, hsl(var(--military-maroon)) 100%);
+    /* Simplified Military Colors */
+    --military-black: 0 0% 3%;
+    --military-maroon: 0 70% 25%;
+    --military-light-blue: 200 95% 90%;
+    --military-white: 0 0% 98%;
+    --military-neutral: 0 0% 45%;
   }
 
   .dark {
-    --background: 0 0% 5%;
+    --background: 0 0% 3%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 5%;
+    --card: 0 0% 3%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 5%;
+    --popover: 0 0% 3%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 85% 35%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 0 70% 25%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 200 100% 20%;
-    --muted-foreground: 0 0% 98%;
-    --accent: 200 100% 70%;
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 85% 35%;
+    --accent: 200 95% 15%;
+    --accent-foreground: 0 0% 98%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+    --destructive: 0 70% 25%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 200 100% 70%;
+    --ring: 200 95% 15%;
     --sidebar-background: 0 0% 2%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 200 100% 70%;
-    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-primary: 200 95% 15%;
+    --sidebar-primary-foreground: 0 0% 3%;
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 200 100% 70%;
+    --sidebar-ring: 200 95% 15%;
   }
 }
 
@@ -98,91 +92,40 @@
   }
 
   body {
-    @apply bg-background text-foreground font-military;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'system-ui', sans-serif;
   }
 }
 
 @layer utilities {
-  .military-hero-gradient {
-    background: var(--military-hero-gradient);
-  }
-  
-  .military-glass-nav {
-    backdrop-filter: blur(20px);
+  .military-nav {
     background: hsla(var(--military-black), 0.95);
-    border-bottom: 1px solid hsla(var(--military-light-blue), 0.5);
-    box-shadow: 0 8px 32px hsla(var(--military-black), 0.3);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid hsla(var(--military-light-blue), 0.2);
   }
   
-  .military-glass {
-    backdrop-filter: blur(15px);
-    background: var(--military-glass-gradient);
-    border: 1px solid hsla(var(--military-light-blue), 0.3);
-    box-shadow: 0 8px 32px hsla(var(--military-black), 0.2);
+  .military-professional {
+    background: linear-gradient(135deg, hsl(var(--military-black)) 0%, hsl(var(--military-maroon)) 100%);
   }
 
-  .military-command-gradient {
-    background: var(--military-command-gradient);
+  .military-text {
+    color: hsl(var(--military-white));
   }
 
-  .military-insignia {
-    background: linear-gradient(45deg, hsl(var(--military-light-blue)) 0%, hsl(var(--military-silver)) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .counter-animation {
-    animation: countUp 2s ease-out;
-  }
-
-  .slide-up {
-    animation: slideUp 0.8s ease-out;
-  }
-
-  .fade-in-up {
-    animation: fadeInUp 1s ease-out;
-  }
-
-  .march-in {
-    animation: march-in 0.8s ease-out;
-  }
-
-  @keyframes countUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .text-shadow-strong {
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  }
-
-  .hover-lift-military {
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .hover-lift-military:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px hsla(var(--military-black), 0.3);
+  .military-text-muted {
+    color: hsl(var(--military-neutral));
   }
 
   .military-border {
-    border: 2px solid;
-    border-image: linear-gradient(45deg, hsl(var(--military-light-blue)), hsl(var(--military-silver))) 1;
+    border-color: hsl(var(--military-light-blue));
   }
 
-  .military-precision {
-    letter-spacing: 0.05em;
-    font-weight: 600;
+  .professional-shadow {
+    box-shadow: 0 4px 20px hsla(var(--military-black), 0.1);
+  }
+
+  .text-professional {
+    letter-spacing: 0.025em;
+    font-weight: 500;
   }
 }

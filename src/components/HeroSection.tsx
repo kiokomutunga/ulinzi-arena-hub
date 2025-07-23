@@ -10,30 +10,27 @@ const HeroSection = () => {
   const slides = [
     {
       id: 1,
-      title: "ULINZI SPORTS COMPLEX",
-      subtitle: "KENYA DEFENCE FORCES FACILITY",
-      description: "World-class multi-sport facility hosting premier events with military precision and excellence",
-      image: "https://readdy.ai/api/search-image?query=modern%20sports%20stadium%20at%20sunset%20with%20dramatic%20lighting%2C%20football%20pitch%20visible%2C%20spectators%20in%20stands%2C%20professional%20sports%20venue%20with%20mountains%20in%20background%2C%20cinematic%20wide%20angle%20shot%20with%20perfect%20lighting&width=1440&height=600&seq=hero1&orientation=landscape",
-      cta: "EXPLORE FACILITIES",
-      featured: "20,000 Seater Stadium"
+      title: "World-Class Sports Facility",
+      subtitle: "Experience excellence at Kenya's premier defence sports complex",
+      description: "State-of-the-art facilities for professional sports, training, and community events.",
+      image: "https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      cta: "Explore Facilities"
     },
     {
       id: 2,
-      title: "OLYMPIC STANDARD ATHLETICS",
-      subtitle: "IAAF CERTIFIED TRACK & FIELD",
-      description: "Professional athletics facility meeting international standards for world-class competitions",
-      image: "https://readdy.ai/api/search-image?query=professional%20running%20track%20with%20red%20surface%2C%20white%20lane%20markings%2C%20field%20event%20areas%2C%20stadium%20seating%2C%20perfect%20condition%2C%20sunny%20day%2C%20empty%20track%20ready%20for%20competition&width=1440&height=600&seq=hero2&orientation=landscape",
-      cta: "VIEW ATHLETICS",
-      featured: "400m Professional Track"
+      title: "Premier Sports Events",
+      subtitle: "Host to national and international competitions",
+      description: "Witness thrilling matches and competitions in our professional-grade venues.",
+      image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      cta: "View Events"
     },
     {
       id: 3,
-      title: "LIVE MATCH EXPERIENCE",
-      subtitle: "PREMIER FOOTBALL EVENTS",
-      description: "Experience the thrill of live football with state-of-the-art facilities and atmosphere",
-      image: "https://readdy.ai/api/search-image?query=live%20football%20match%20in%20progress%2C%20players%20on%20green%20pitch%2C%20stadium%20lights%2C%20excited%20crowd%2C%20professional%20sports%20photography%2C%20dynamic%20action%20shot%20of%20football%20game&width=1440&height=600&seq=hero3&orientation=landscape",
-      cta: "BOOK TICKETS",
-      featured: "Live Match Today"
+      title: "Professional Training Ground",
+      subtitle: "Elite training facilities for defence personnel and athletes",
+      description: "Advanced equipment and facilities designed for peak performance and excellence.",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      cta: "Book Training"
     }
   ];
 
@@ -54,178 +51,114 @@ const HeroSection = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
-
   return (
-    <div className="relative h-screen overflow-hidden">
-      {/* Background Slides */}
-      <div className="absolute inset-0">
+    <div className="relative h-screen w-full overflow-hidden">
+      {/* Hero Content */}
+      <div className="relative h-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 military-hero-gradient opacity-80"></div>
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 flex items-center h-full">
+              <div className="max-w-7xl mx-auto px-6 sm:px-8">
+                <div className="max-w-2xl">
+                  <h2 className="text-sm font-semibold text-accent mb-4 text-professional tracking-wider">
+                    ULINZI SPORTS COMPLEX
+                  </h2>
+                  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    {slide.title}
+                  </h1>
+                  <p className="text-xl md:text-2xl text-gray-200 mb-4 font-medium">
+                    {slide.subtitle}
+                  </p>
+                  <p className="text-base text-gray-300 mb-8 leading-relaxed max-w-lg">
+                    {slide.description}
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                      {slide.cta}
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="border-white text-white hover:bg-white hover:text-black font-semibold"
+                    >
+                      <Play className="w-4 h-4 mr-2" />
+                      Watch Tour
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            {/* Featured Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-military-maroon/20 backdrop-blur-sm border border-military-light-blue/30 mb-6">
-              <span className="w-2 h-2 bg-military-maroon rounded-full mr-2 animate-pulse"></span>
-              <span className="text-military-light-blue font-semibold text-sm military-precision">
-                {slides[currentSlide].featured}
-              </span>
-            </div>
-
-            {/* Main Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-military-white mb-4 text-shadow-strong military-precision">
-              {slides[currentSlide].title}
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-military-light-blue mb-6 military-precision">
-              {slides[currentSlide].subtitle}
-            </p>
-
-            {/* Description */}
-            <p className="text-lg md:text-xl text-military-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-              {slides[currentSlide].description}
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button
-                size="lg"
-                className="bg-military-maroon hover:bg-military-maroon/80 text-military-white font-bold military-precision px-8 py-3 text-lg"
-              >
-                {slides[currentSlide].cta}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-military-light-blue text-military-white hover:bg-military-light-blue hover:text-military-black font-bold military-precision px-8 py-3 text-lg"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                WATCH HIGHLIGHTS
-              </Button>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-              <div className="military-glass rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-military-light-blue mb-2">20,000</div>
-                <div className="text-military-white font-semibold">SEATING CAPACITY</div>
-              </div>
-              <div className="military-glass rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-military-light-blue mb-2">400M</div>
-                <div className="text-military-white font-semibold">ATHLETICS TRACK</div>
-              </div>
-              <div className="military-glass rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-military-light-blue mb-2">24/7</div>
-                <div className="text-military-white font-semibold">SECURITY</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex items-center space-x-4">
-          {/* Play/Pause Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={togglePlayPause}
-            className="text-military-white hover:bg-military-white/10"
-          >
-            <Play className={`h-4 w-4 ${isPlaying ? 'animate-pulse' : ''}`} />
-          </Button>
-
-          {/* Slide Indicators */}
-          <div className="flex space-x-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? 'bg-military-light-blue w-8'
-                    : 'bg-military-white/50 hover:bg-military-white/75'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Previous/Next Buttons */}
-          <div className="flex space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={prevSlide}
-              className="text-military-white hover:bg-military-white/10"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={nextSlide}
-              className="text-military-white hover:bg-military-white/10"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={prevSlide}
+          className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </Button>
+        
+        <div className="flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentSlide ? "bg-white w-6" : "bg-white/50"
+              }`}
+            />
+          ))}
         </div>
+        
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={nextSlide}
+          className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </Button>
       </div>
 
-      {/* Upcoming Event Banner */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className="military-glass border-t border-military-light-blue/30 p-4">
-          <div className="container mx-auto">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-military-maroon rounded-full animate-pulse"></div>
-                  <span className="text-military-light-blue font-semibold text-sm">NEXT EVENT</span>
-                </div>
-                <div className="text-military-white font-semibold">
-                  KDF vs Police FC - Premier League
-                </div>
-                <div className="flex items-center space-x-2 text-military-light-blue text-sm">
-                  <Calendar className="h-4 w-4" />
-                  <span>Today, 3:00 PM</span>
-                  <MapPin className="h-4 w-4 ml-2" />
-                  <span>Main Stadium</span>
-                </div>
-              </div>
-              <Button
-                size="sm"
-                className="bg-military-maroon hover:bg-military-maroon/80 text-military-white font-bold"
-              >
-                GET TICKETS
-              </Button>
+      {/* Play/Pause Control */}
+      <div className="absolute top-32 right-8">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+        >
+          {isPlaying ? (
+            <div className="w-4 h-4 flex space-x-1">
+              <div className="w-1 h-4 bg-white"></div>
+              <div className="w-1 h-4 bg-white"></div>
             </div>
-          </div>
-        </div>
+          ) : (
+            <Play className="w-4 h-4" />
+          )}
+        </Button>
       </div>
     </div>
   );

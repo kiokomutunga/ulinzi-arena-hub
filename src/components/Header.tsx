@@ -3,227 +3,130 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Menu, Calendar, Trophy, Star, MapPin, Clock, Shield, ChevronDown, Users, Award } from "lucide-react";
+import { Menu, Shield, ChevronDown, Users, Calendar, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-
-// Dynamic sample data for dropdowns
-const currentEvents = [
-  { title: "KDF vs Police FC - Premier League", date: "Today", time: "3:00 PM", venue: "Main Stadium", status: "live" },
-  { title: "Athletics Championship Final", date: "Tomorrow", time: "9:00 AM", venue: "Track & Field", status: "upcoming" },
-  { title: "Military Parade Ceremony", date: "March 25", time: "10:00 AM", venue: "Main Stadium", status: "upcoming" },
-  { title: "Youth Football Tournament", date: "March 30", time: "2:00 PM", venue: "Training Pitch", status: "upcoming" },
-];
-
-const liveNews = [
-  { title: "New Olympic-Standard Track Unveiled", date: "Today", category: "Facilities", urgent: true },
-  { title: "KDF Wins Regional Championship", date: "Yesterday", category: "Sports", urgent: false },
-  { title: "Security Upgrades Complete", date: "March 10", category: "Military", urgent: false },
-  { title: "Community Outreach Program Launch", date: "March 8", category: "Community", urgent: false },
-];
-
-const fanZoneFeatures = [
-  { title: "Official Team Store", description: "Authentic jerseys & merchandise", icon: Trophy },
-  { title: "VIP Hospitality", description: "Premium match experiences", icon: Star },
-  { title: "Season Memberships", description: "Exclusive member benefits", icon: Shield },
-  { title: "Fan Community Hub", description: "Connect with fellow supporters", icon: Users },
-];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navigationItems = [
+    { name: "HOME", href: "#", simple: true },
+    { name: "ABOUT", href: "#", simple: true },
+    { 
+      name: "EVENTS", 
+      href: "#", 
+      dropdown: [
+        { title: "Upcoming Events", description: "View all scheduled events", icon: Calendar },
+        { title: "Live Events", description: "Currently happening", icon: Users },
+        { title: "Event Calendar", description: "Full calendar view", icon: MapPin }
+      ]
+    },
+    { name: "FACILITIES", href: "#", simple: true },
+    { name: "BOOKING", href: "#", simple: true },
+    { name: "CONTACT", href: "#", simple: true }
+  ];
+
   return (
     <>
-      {/* Official Military Command Banner */}
-      <div className="military-command-gradient text-military-white py-3 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center text-sm military-precision">
-          <Award className="h-5 w-5 mr-3" />
-          <span className="military-insignia font-bold">KENYA DEFENCE FORCES</span>
-          <span className="mx-4 text-military-light-blue">•</span>
-          <span>ULINZI SPORTS COMPLEX - EXCELLENCE THROUGH DISCIPLINE</span>
+      {/* Professional Military Banner */}
+      <div className="military-professional text-military-white py-2 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center text-sm text-professional">
+          <Shield className="h-4 w-4 mr-2" />
+          <span className="font-semibold">KENYA DEFENCE FORCES</span>
+          <span className="mx-3 text-military-text-muted">|</span>
+          <span>ULINZI SPORTS COMPLEX</span>
         </div>
       </div>
 
-      <header className="fixed top-12 left-0 right-0 z-50 w-full">
-        <div className="military-glass-nav mx-4 rounded-lg shadow-2xl">
-          <div className="container mx-auto flex h-20 items-center justify-between px-8">
-            {/* Professional Military Logo */}
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="w-12 h-12 military-glass rounded-full flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-military-light-blue" />
-                </div>
-                <div className="absolute -top-1 -right-1 h-4 w-4 bg-military-maroon rounded-full border-2 border-military-white"></div>
+      {/* Main Navigation */}
+      <header className="fixed top-8 left-0 right-0 z-50 w-full">
+        <div className="military-nav mx-6 rounded-lg professional-shadow">
+          <div className="container mx-auto flex h-16 items-center justify-between px-6">
+            {/* Logo */}
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <Shield className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-military-white military-precision">
+                <h1 className="text-lg font-bold text-military-white text-professional">
                   ULINZI SPORTS COMPLEX
                 </h1>
-                <p className="text-sm text-military-light-blue font-medium">KENYA DEFENCE FORCES FACILITY</p>
+                <p className="text-xs text-military-text-muted">Defence Forces Facility</p>
               </div>
             </div>
 
-            {/* Professional Desktop Navigation */}
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               <NavigationMenu>
-                <NavigationMenuList className="space-x-8">
-                  {/* Home */}
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
-                      HOME
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-
-                  {/* About */}
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
-                      ABOUT
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-
-                  {/* Events Dropdown */}
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-military-white hover:text-military-light-blue transition-colors font-semibold military-precision">
-                      OPERATIONS <ChevronDown className="ml-1 h-4 w-4" />
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="p-6 w-[550px] military-glass border border-military-light-blue/30 rounded-lg">
-                        <h3 className="font-bold text-lg mb-4 text-military-white">CURRENT OPERATIONS</h3>
-                        <div className="grid gap-4">
-                          {currentEvents.map((event, index) => (
-                            <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-military-light-blue/10 transition-colors">
-                              <div className={`w-3 h-3 rounded-full mt-2 ${event.status === 'live' ? 'bg-military-maroon animate-pulse' : 'bg-military-light-blue'}`}></div>
-                              <div className="flex-1">
-                                <p className="font-semibold text-military-white military-precision">{event.title}</p>
-                                <div className="flex items-center space-x-4 text-sm text-military-light-blue mt-1">
-                                  <span className="flex items-center"><Calendar className="h-3 w-3 mr-1" />{event.date}</span>
-                                  <span className="flex items-center"><Clock className="h-3 w-3 mr-1" />{event.time}</span>
-                                  <span className="flex items-center"><MapPin className="h-3 w-3 mr-1" />{event.venue}</span>
-                                </div>
-                              </div>
-                              {event.status === 'live' && (
-                                <span className="bg-military-maroon text-military-white text-xs px-3 py-1 rounded-full font-bold">
-                                  LIVE
-                                </span>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                        <Button className="w-full mt-6 bg-military-black hover:bg-military-maroon text-military-white font-bold">
-                          VIEW ALL OPERATIONS
-                        </Button>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-
-                  {/* Intelligence (News) Dropdown */}
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-military-white hover:text-military-light-blue transition-colors font-semibold military-precision">
-                      INTELLIGENCE <ChevronDown className="ml-1 h-4 w-4" />
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="p-6 w-[450px] military-glass border border-military-light-blue/30 rounded-lg">
-                        <h3 className="font-bold text-lg mb-4 text-military-white">LATEST INTELLIGENCE</h3>
-                        <div className="space-y-4">
-                          {liveNews.map((item, index) => (
-                            <div key={index} className="border-l-4 border-military-maroon pl-4 py-2 hover:bg-military-light-blue/5 rounded-r-lg transition-colors">
-                              <div className="flex items-center justify-between">
-                                <span className={`text-xs px-3 py-1 rounded-full font-bold ${item.urgent ? 'bg-military-maroon text-military-white' : 'bg-military-light-blue text-military-black'}`}>
-                                  {item.category}
-                                </span>
-                                {item.urgent && <span className="text-xs text-military-maroon font-bold">PRIORITY</span>}
-                              </div>
-                              <p className="font-semibold text-military-white mt-2 military-precision">{item.title}</p>
-                              <p className="text-sm text-military-light-blue">{item.date}</p>
-                            </div>
-                          ))}
-                        </div>
-                        <Button variant="outline" className="w-full mt-6 border-military-light-blue text-military-white hover:bg-military-light-blue hover:text-military-black font-bold">
-                          ACCESS FULL BRIEFING
-                        </Button>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-
-                  {/* Personnel Zone */}
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-military-white hover:text-military-light-blue transition-colors font-semibold military-precision">
-                      PERSONNEL <ChevronDown className="ml-1 h-4 w-4" />
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="p-6 w-[400px] military-glass border border-military-light-blue/30 rounded-lg">
-                        <h3 className="font-bold text-lg mb-4 text-military-white">PERSONNEL SERVICES</h3>
-                        <div className="grid gap-3">
-                          {fanZoneFeatures.map((item, index) => (
-                            <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-military-light-blue/5 transition-colors cursor-pointer">
-                              <item.icon className="h-6 w-6 text-military-light-blue mt-1" />
-                              <div>
-                                <p className="font-semibold text-military-white military-precision">{item.title}</p>
-                                <p className="text-sm text-military-light-blue">{item.description}</p>
+                <NavigationMenuList className="space-x-6">
+                  {navigationItems.map((item) => (
+                    <NavigationMenuItem key={item.name}>
+                      {item.simple ? (
+                        <NavigationMenuLink className="text-military-white hover:text-accent-foreground transition-colors cursor-pointer font-medium text-sm text-professional">
+                          {item.name}
+                        </NavigationMenuLink>
+                      ) : (
+                        <>
+                          <NavigationMenuTrigger className="text-military-white hover:text-accent-foreground transition-colors font-medium text-sm text-professional">
+                            {item.name} <ChevronDown className="ml-1 h-3 w-3" />
+                          </NavigationMenuTrigger>
+                          <NavigationMenuContent>
+                            <div className="p-4 w-80 bg-card border border-border rounded-lg professional-shadow">
+                              <h3 className="font-semibold text-base mb-3 text-card-foreground">{item.name}</h3>
+                              <div className="space-y-2">
+                                {item.dropdown?.map((dropItem, index) => (
+                                  <div key={index} className="flex items-start space-x-3 p-2 rounded-md hover:bg-accent transition-colors cursor-pointer">
+                                    <dropItem.icon className="h-4 w-4 text-muted-foreground mt-0.5" />
+                                    <div>
+                                      <p className="font-medium text-sm text-card-foreground">{dropItem.title}</p>
+                                      <p className="text-xs text-muted-foreground">{dropItem.description}</p>
+                                    </div>
+                                  </div>
+                                ))}
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-
-                  {/* Simple Links */}
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
-                      FACILITIES
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
-                      BOOKING
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
-                      CONTACT
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
+                          </NavigationMenuContent>
+                        </>
+                      )}
+                    </NavigationMenuItem>
+                  ))}
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <div className="flex items-center space-x-4">
-                <Button variant="outline" size="sm" className="border-military-light-blue text-military-white hover:bg-military-light-blue hover:text-military-black font-bold">
-                  PERSONNEL LOGIN
+              {/* Action Buttons */}
+              <div className="flex items-center space-x-3">
+                <Button variant="outline" size="sm" className="border-accent text-military-white hover:bg-accent hover:text-accent-foreground font-medium">
+                  LOGIN
                 </Button>
                 <Link to="/admin">
-                  <Button size="sm" className="bg-military-maroon hover:bg-military-maroon/80 text-military-white font-bold">
-                    COMMAND CENTER
+                  <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-medium">
+                    ADMIN
                   </Button>
                 </Link>
               </div>
             </nav>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
                 <Button variant="ghost" size="icon" className="text-military-white">
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80 bg-military-black text-military-white">
-                <nav className="flex flex-col space-y-6 mt-8">
-                  <a href="#" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">HOME</a>
-                  <a href="#" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">ABOUT</a>
-                  <a href="#events" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">OPERATIONS</a>
-                  <a href="#news" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">INTELLIGENCE</a>
-                  <a href="#personnel" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">PERSONNEL</a>
-                  <a href="#facilities" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">FACILITIES</a>
-                  <a href="#booking" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">BOOKING</a>
-                  <a href="#contact" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">CONTACT</a>
-                  <div className="pt-6 border-t border-military-light-blue/30">
-                    <Button variant="outline" className="w-full mb-3 border-military-light-blue text-military-white hover:bg-military-light-blue hover:text-military-black font-bold">
-                      PERSONNEL LOGIN
+              <SheetContent side="right" className="w-80 bg-card text-card-foreground">
+                <nav className="flex flex-col space-y-4 mt-8">
+                  {navigationItems.map((item) => (
+                    <a key={item.name} href={item.href} className="text-base font-medium hover:text-primary transition-colors text-professional">
+                      {item.name}
+                    </a>
+                  ))}
+                  <div className="pt-4 border-t border-border space-y-3">
+                    <Button variant="outline" className="w-full font-medium">
+                      LOGIN
                     </Button>
                     <Link to="/admin">
-                      <Button className="w-full bg-military-maroon hover:bg-military-maroon/80 font-bold">
-                        COMMAND CENTER
+                      <Button className="w-full bg-secondary hover:bg-secondary/90 font-medium">
+                        ADMIN
                       </Button>
                     </Link>
                   </div>
