@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ulinzi Sports Complex - Professional Military Design System */
+/* Ulinzi Sports Complex - Stadium-Inspired Design System */
 
 @layer base {
   :root {
@@ -16,25 +16,25 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3%;
 
-    /* Official Military Colors - Reduced Palette */
+    /* Stadium-Inspired Colors */
     --primary: 0 0% 3%; /* Deep Black */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 70% 25%; /* Professional Maroon */
+    --secondary: 0 85% 45%; /* Stadium Red */
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 200 95% 90%; /* Subtle Light Blue */
-    --accent-foreground: 0 0% 3%;
+    --accent: 210 100% 55%; /* Stadium Blue */
+    --accent-foreground: 0 0% 98%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --destructive: 0 70% 25%;
+    --destructive: 0 85% 45%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 90%;
     --input: 0 0% 96%;
-    --ring: 200 95% 90%;
+    --ring: 210 100% 55%;
 
     --radius: 0.5rem;
 
@@ -45,14 +45,14 @@
     --sidebar-accent: 0 0% 96%;
     --sidebar-accent-foreground: 0 0% 3%;
     --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 200 95% 90%;
+    --sidebar-ring: 210 100% 55%;
 
-    /* Simplified Military Colors */
-    --military-black: 0 0% 3%;
-    --military-maroon: 0 70% 25%;
-    --military-light-blue: 200 95% 90%;
-    --military-white: 0 0% 98%;
-    --military-neutral: 0 0% 45%;
+    /* Stadium Military Colors */
+    --stadium-black: 0 0% 3%;
+    --stadium-red: 0 85% 45%;
+    --stadium-blue: 210 100% 55%;
+    --stadium-white: 0 0% 98%;
+    --stadium-neutral: 0 0% 45%;
   }
 
   .dark {
@@ -64,25 +64,25 @@
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 3%;
-    --secondary: 0 70% 25%;
+    --secondary: 0 85% 45%;
     --secondary-foreground: 0 0% 98%;
-    --accent: 200 95% 15%;
+    --accent: 210 100% 55%;
     --accent-foreground: 0 0% 98%;
     --muted: 0 0% 10%;
     --muted-foreground: 0 0% 65%;
-    --destructive: 0 70% 25%;
+    --destructive: 0 85% 45%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 200 95% 15%;
+    --ring: 210 100% 55%;
     --sidebar-background: 0 0% 2%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 200 95% 15%;
+    --sidebar-primary: 210 100% 55%;
     --sidebar-primary-foreground: 0 0% 3%;
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 200 95% 15%;
+    --sidebar-ring: 210 100% 55%;
   }
 }
 
@@ -98,30 +98,30 @@
 }
 
 @layer utilities {
-  .military-nav {
-    background: hsla(var(--military-black), 0.95);
+  .stadium-nav {
+    background: hsla(var(--stadium-black), 0.95);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid hsla(var(--military-light-blue), 0.2);
+    border-bottom: 1px solid hsla(var(--stadium-blue), 0.3);
   }
   
-  .military-professional {
-    background: linear-gradient(135deg, hsl(var(--military-black)) 0%, hsl(var(--military-maroon)) 100%);
+  .stadium-gradient {
+    background: linear-gradient(135deg, hsl(var(--stadium-black)) 0%, hsl(var(--stadium-red)) 100%);
   }
 
-  .military-text {
-    color: hsl(var(--military-white));
+  .stadium-text {
+    color: hsl(var(--stadium-white));
   }
 
-  .military-text-muted {
-    color: hsl(var(--military-neutral));
+  .stadium-text-muted {
+    color: hsl(var(--stadium-neutral));
   }
 
-  .military-border {
-    border-color: hsl(var(--military-light-blue));
+  .stadium-border {
+    border-color: hsl(var(--stadium-blue));
   }
 
   .professional-shadow {
-    box-shadow: 0 4px 20px hsla(var(--military-black), 0.1);
+    box-shadow: 0 4px 20px hsla(var(--stadium-black), 0.15);
   }
 
   .text-professional {

@@ -29,29 +29,29 @@ const Header = () => {
   return (
     <>
       {/* Professional Military Banner */}
-      <div className="military-professional text-military-white py-2 px-4">
+      <div className="stadium-gradient stadium-text py-2 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-center text-sm text-professional">
           <Shield className="h-4 w-4 mr-2" />
           <span className="font-semibold">KENYA DEFENCE FORCES</span>
-          <span className="mx-3 text-military-text-muted">|</span>
+          <span className="mx-3 text-stadium-neutral">|</span>
           <span>ULINZI SPORTS COMPLEX</span>
         </div>
       </div>
 
       {/* Main Navigation */}
       <header className="fixed top-8 left-0 right-0 z-50 w-full">
-        <div className="military-nav mx-6 rounded-lg professional-shadow">
+        <div className="stadium-nav mx-6 rounded-lg professional-shadow">
           <div className="container mx-auto flex h-16 items-center justify-between px-6">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Shield className="h-6 w-6 text-primary-foreground" />
+              <div className="w-10 h-10 bg-stadium-red rounded-lg flex items-center justify-center">
+                <Shield className="h-6 w-6 text-stadium-white" />
               </div>
               <div>
-                <h1 className="text-lg font-bold text-military-white text-professional">
+                <h1 className="text-lg font-bold text-stadium-white text-professional">
                   ULINZI SPORTS COMPLEX
                 </h1>
-                <p className="text-xs text-military-text-muted">Defence Forces Facility</p>
+                <p className="text-xs text-stadium-neutral">Defence Forces Facility</p>
               </div>
             </div>
 
@@ -62,12 +62,12 @@ const Header = () => {
                   {navigationItems.map((item) => (
                     <NavigationMenuItem key={item.name}>
                       {item.simple ? (
-                        <NavigationMenuLink className="text-military-white hover:text-accent-foreground transition-colors cursor-pointer font-medium text-sm text-professional">
+                        <NavigationMenuLink className="text-stadium-white hover:text-stadium-blue transition-colors cursor-pointer font-medium text-sm text-professional">
                           {item.name}
                         </NavigationMenuLink>
                       ) : (
                         <>
-                          <NavigationMenuTrigger className="text-military-white hover:text-accent-foreground transition-colors font-medium text-sm text-professional">
+                          <NavigationMenuTrigger className="text-stadium-white hover:text-stadium-blue transition-colors font-medium text-sm text-professional">
                             {item.name} <ChevronDown className="ml-1 h-3 w-3" />
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
@@ -95,11 +95,11 @@ const Header = () => {
 
               {/* Action Buttons */}
               <div className="flex items-center space-x-3">
-                <Button variant="outline" size="sm" className="border-accent text-military-white hover:bg-accent hover:text-accent-foreground font-medium">
+                <Button variant="outline" size="sm" className="border-stadium-blue text-stadium-white hover:bg-stadium-blue hover:text-stadium-white font-medium">
                   LOGIN
                 </Button>
                 <Link to="/admin">
-                  <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-medium">
+                  <Button size="sm" className="bg-stadium-red hover:bg-stadium-red/90 text-stadium-white font-medium">
                     ADMIN
                   </Button>
                 </Link>
@@ -109,7 +109,7 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="icon" className="text-military-white">
+                <Button variant="ghost" size="icon" className="text-stadium-white">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -125,7 +125,7 @@ const Header = () => {
                       LOGIN
                     </Button>
                     <Link to="/admin">
-                      <Button className="w-full bg-secondary hover:bg-secondary/90 font-medium">
+                      <Button className="w-full bg-stadium-red hover:bg-stadium-red/90 font-medium">
                         ADMIN
                       </Button>
                     </Link>

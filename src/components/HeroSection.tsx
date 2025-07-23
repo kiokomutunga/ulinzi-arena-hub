@@ -76,7 +76,7 @@ const HeroSection = () => {
             <div className="relative z-10 flex items-center h-full">
               <div className="max-w-7xl mx-auto px-6 sm:px-8">
                 <div className="max-w-2xl">
-                  <h2 className="text-sm font-semibold text-accent mb-4 text-professional tracking-wider">
+                  <h2 className="text-sm font-semibold text-stadium-blue mb-4 text-professional tracking-wider">
                     ULINZI SPORTS COMPLEX
                   </h2>
                   <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
@@ -90,13 +90,13 @@ const HeroSection = () => {
                   </p>
                   
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                    <Button size="lg" className="bg-stadium-red hover:bg-stadium-red/90 text-stadium-white font-semibold">
                       {slide.cta}
                     </Button>
                     <Button 
                       variant="outline" 
                       size="lg" 
-                      className="border-white text-white hover:bg-white hover:text-black font-semibold"
+                      className="border-2 border-stadium-blue text-stadium-blue bg-white/90 hover:bg-stadium-blue hover:text-white font-semibold transition-all duration-300"
                     >
                       <Play className="w-4 h-4 mr-2" />
                       Watch Tour
@@ -115,7 +115,7 @@ const HeroSection = () => {
           variant="ghost"
           size="icon"
           onClick={prevSlide}
-          className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+          className="bg-stadium-black/60 hover:bg-stadium-black/80 text-white backdrop-blur-sm"
         >
           <ChevronLeft className="w-5 h-5" />
         </Button>
@@ -125,8 +125,8 @@ const HeroSection = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentSlide ? "bg-white w-6" : "bg-white/50"
+              className={`h-2 rounded-full transition-all ${
+                index === currentSlide ? "bg-stadium-red w-6" : "bg-white/50 w-2"
               }`}
             />
           ))}
@@ -136,7 +136,7 @@ const HeroSection = () => {
           variant="ghost"
           size="icon"
           onClick={nextSlide}
-          className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+          className="bg-stadium-black/60 hover:bg-stadium-black/80 text-white backdrop-blur-sm"
         >
           <ChevronRight className="w-5 h-5" />
         </Button>
@@ -148,7 +148,7 @@ const HeroSection = () => {
           variant="ghost"
           size="icon"
           onClick={() => setIsPlaying(!isPlaying)}
-          className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+          className="bg-stadium-black/60 hover:bg-stadium-black/80 text-white backdrop-blur-sm"
         >
           {isPlaying ? (
             <div className="w-4 h-4 flex space-x-1">

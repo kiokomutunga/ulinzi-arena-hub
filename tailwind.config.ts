@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,12 +62,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Simplified Military Colors
-				'military-black': 'hsl(var(--military-black))',
-				'military-maroon': 'hsl(var(--military-maroon))',
-				'military-light-blue': 'hsl(var(--military-light-blue))',
-				'military-white': 'hsl(var(--military-white))',
-				'military-neutral': 'hsl(var(--military-neutral))',
+				// Stadium-Inspired Colors
+				'stadium-black': 'hsl(var(--stadium-black))',
+				'stadium-red': 'hsl(var(--stadium-red))',
+				'stadium-blue': 'hsl(var(--stadium-blue))',
+				'stadium-white': 'hsl(var(--stadium-white))',
+				'stadium-neutral': 'hsl(var(--stadium-neutral))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
