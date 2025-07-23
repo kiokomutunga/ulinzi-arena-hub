@@ -63,19 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Official Defense Colors
-				'defense-navy': 'hsl(var(--defense-navy))',
-				'defense-silver': 'hsl(var(--defense-silver))',
-				'defense-gold': 'hsl(var(--defense-gold))',
-				'defense-crimson': 'hsl(var(--defense-crimson))',
-				'defense-forest': 'hsl(var(--defense-forest))',
-				'defense-slate': 'hsl(var(--defense-slate))',
-				'defense-khaki': 'hsl(var(--defense-khaki))',
-				// Legacy support
-				'military-black': 'hsl(var(--defense-navy))',
-				'kenya-red': 'hsl(var(--defense-crimson))',
-				'kenya-green': 'hsl(var(--defense-forest))',
-				'military-gold': 'hsl(var(--defense-gold))'
+				// Official Military Colors
+				'military-black': 'hsl(var(--military-black))',
+				'military-maroon': 'hsl(var(--military-maroon))',
+				'military-light-blue': 'hsl(var(--military-light-blue))',
+				'military-dark-blue': 'hsl(var(--military-dark-blue))',
+				'military-silver': 'hsl(var(--military-silver))',
+				'military-white': 'hsl(var(--military-white))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

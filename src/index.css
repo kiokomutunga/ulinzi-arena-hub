@@ -3,93 +3,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ulinzi Sports Complex - Official Defense Design System */
+/* Ulinzi Sports Complex - Official Military Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card-foreground: 0 0% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover-foreground: 0 0% 5%;
 
-    /* Official Defense Colors */
-    --primary: 220 25% 12%; /* Defense Navy */
+    /* Official Military Colors */
+    --primary: 0 0% 5%; /* Military Black */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 75% 45%; /* Defense Crimson */
+    --secondary: 0 85% 35%; /* Military Maroon */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 140 35% 25%; /* Defense Forest */
-    --muted-foreground: 0 0% 98%;
+    --muted: 200 100% 85%; /* Military Light Blue */
+    --muted-foreground: 0 0% 5%;
 
-    --accent: 45 85% 55%; /* Defense Gold */
-    --accent-foreground: 220 25% 12%;
+    --accent: 200 100% 70%; /* Accent Light Blue */
+    --accent-foreground: 0 0% 5%;
 
-    --destructive: 0 75% 45%;
+    --destructive: 0 85% 35%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 85%;
-    --input: 220 15% 95%;
-    --ring: 45 85% 55%;
+    --border: 0 0% 85%;
+    --input: 0 0% 95%;
+    --ring: 200 100% 70%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 220 15% 15%;
-    --sidebar-primary: 220 25% 12%;
+    --sidebar-foreground: 0 0% 5%;
+    --sidebar-primary: 0 0% 5%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 220 15% 95%;
-    --sidebar-accent-foreground: 220 15% 15%;
-    --sidebar-border: 220 15% 85%;
-    --sidebar-ring: 45 85% 55%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 5%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 200 100% 70%;
 
-    /* Official Defense Color System */
-    --defense-navy: 220 25% 12%;        /* Primary - Deep Navy Blue */
-    --defense-silver: 210 8% 75%;       /* Secondary - Military Silver */
-    --defense-gold: 45 85% 55%;         /* Accent - Honor Gold */
-    --defense-crimson: 0 75% 45%;       /* Alert - Military Crimson */
-    --defense-forest: 140 35% 25%;      /* Success - Forest Green */
-    --defense-slate: 220 15% 35%;       /* Neutral - Slate Gray */
-    --defense-khaki: 35 25% 65%;        /* Utility - Field Khaki */
+    /* Official Military Color System */
+    --military-black: 0 0% 5%;            /* Primary - Deep Black */
+    --military-maroon: 0 85% 35%;         /* Secondary - Military Maroon */
+    --military-light-blue: 200 100% 85%;  /* Tertiary - Light Blue */
+    --military-dark-blue: 200 100% 20%;   /* Darker Blue for contrast */
+    --military-silver: 0 0% 75%;          /* Neutral - Silver */
+    --military-white: 0 0% 98%;           /* White */
     
-    /* Professional gradients for defense theme */
-    --defense-hero-gradient: linear-gradient(135deg, hsl(var(--defense-navy)) 0%, hsl(var(--defense-slate)) 50%, hsl(var(--defense-gold)) 100%);
-    --defense-glass-gradient: linear-gradient(135deg, hsla(var(--defense-navy), 0.9) 0%, hsla(var(--defense-slate), 0.7) 100%);
-    --defense-command-gradient: linear-gradient(90deg, hsl(var(--defense-navy)) 0%, hsl(var(--defense-crimson)) 100%);
+    /* Professional gradients for military theme */
+    --military-hero-gradient: linear-gradient(135deg, hsl(var(--military-black)) 0%, hsl(var(--military-maroon)) 50%, hsl(var(--military-dark-blue)) 100%);
+    --military-glass-gradient: linear-gradient(135deg, hsla(var(--military-black), 0.95) 0%, hsla(var(--military-maroon), 0.85) 100%);
+    --military-command-gradient: linear-gradient(90deg, hsl(var(--military-black)) 0%, hsl(var(--military-maroon)) 100%);
   }
 
   .dark {
-    --background: 220 25% 8%;
-    --foreground: 210 40% 98%;
-    --card: 220 25% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 220 25% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 220 25% 12%;
-    --secondary: 220 25% 15%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 220 25% 15%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 220 25% 15%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 220 25% 15%;
-    --input: 220 25% 15%;
-    --ring: 212 26% 83%;
-    --sidebar-background: 220 25% 5%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 45 85% 55%;
-    --sidebar-primary-foreground: 220 25% 12%;
-    --sidebar-accent: 220 25% 10%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 25% 15%;
-    --sidebar-ring: 45 85% 55%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 85% 35%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 200 100% 20%;
+    --muted-foreground: 0 0% 98%;
+    --accent: 200 100% 70%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 85% 35%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 200 100% 70%;
+    --sidebar-background: 0 0% 2%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 200 100% 70%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 200 100% 70%;
   }
 }
 
@@ -104,30 +103,30 @@
 }
 
 @layer utilities {
-  .defense-hero-gradient {
-    background: var(--defense-hero-gradient);
+  .military-hero-gradient {
+    background: var(--military-hero-gradient);
   }
   
-  .defense-glass-nav {
+  .military-glass-nav {
     backdrop-filter: blur(20px);
-    background: hsla(var(--defense-navy), 0.15);
-    border-bottom: 1px solid hsla(var(--defense-gold), 0.3);
-    box-shadow: 0 8px 32px hsla(var(--defense-navy), 0.1);
+    background: hsla(var(--military-black), 0.95);
+    border-bottom: 1px solid hsla(var(--military-light-blue), 0.5);
+    box-shadow: 0 8px 32px hsla(var(--military-black), 0.3);
   }
   
-  .defense-glass {
+  .military-glass {
     backdrop-filter: blur(15px);
-    background: var(--defense-glass-gradient);
-    border: 1px solid hsla(var(--defense-gold), 0.3);
-    box-shadow: 0 8px 32px hsla(var(--defense-navy), 0.1);
+    background: var(--military-glass-gradient);
+    border: 1px solid hsla(var(--military-light-blue), 0.3);
+    box-shadow: 0 8px 32px hsla(var(--military-black), 0.2);
   }
 
-  .defense-command-gradient {
-    background: var(--defense-command-gradient);
+  .military-command-gradient {
+    background: var(--military-command-gradient);
   }
 
-  .defense-insignia {
-    background: linear-gradient(45deg, hsl(var(--defense-gold)) 0%, hsl(var(--defense-silver)) 100%);
+  .military-insignia {
+    background: linear-gradient(45deg, hsl(var(--military-light-blue)) 0%, hsl(var(--military-silver)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -165,21 +164,21 @@
   }
 
   .text-shadow-strong {
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   }
 
-  .hover-lift-defense {
+  .hover-lift-military {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .hover-lift-defense:hover {
+  .hover-lift-military:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px hsla(var(--defense-navy), 0.2);
+    box-shadow: 0 20px 40px hsla(var(--military-black), 0.3);
   }
 
-  .defense-border {
+  .military-border {
     border: 2px solid;
-    border-image: linear-gradient(45deg, hsl(var(--defense-gold)), hsl(var(--defense-silver))) 1;
+    border-image: linear-gradient(45deg, hsl(var(--military-light-blue)), hsl(var(--military-silver))) 1;
   }
 
   .military-precision {

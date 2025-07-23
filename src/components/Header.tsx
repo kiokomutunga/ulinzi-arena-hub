@@ -33,32 +33,32 @@ const Header = () => {
 
   return (
     <>
-      {/* Official Defense Command Banner */}
-      <div className="defense-command-gradient text-white py-3 px-4">
+      {/* Official Military Command Banner */}
+      <div className="military-command-gradient text-military-white py-3 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-center text-sm military-precision">
           <Award className="h-5 w-5 mr-3" />
-          <span className="defense-insignia font-bold">KENYA DEFENCE FORCES</span>
-          <span className="mx-4 text-defense-gold">•</span>
+          <span className="military-insignia font-bold">KENYA DEFENCE FORCES</span>
+          <span className="mx-4 text-military-light-blue">•</span>
           <span>ULINZI SPORTS COMPLEX - EXCELLENCE THROUGH DISCIPLINE</span>
         </div>
       </div>
 
       <header className="fixed top-12 left-0 right-0 z-50 w-full">
-        <div className="defense-glass-nav mx-4 rounded-lg shadow-2xl">
+        <div className="military-glass-nav mx-4 rounded-lg shadow-2xl">
           <div className="container mx-auto flex h-20 items-center justify-between px-8">
             {/* Professional Military Logo */}
             <div className="flex items-center space-x-4">
               <div className="relative">
-                <div className="w-12 h-12 defense-glass rounded-full flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-defense-gold" />
+                <div className="w-12 h-12 military-glass rounded-full flex items-center justify-center">
+                  <Shield className="h-8 w-8 text-military-light-blue" />
                 </div>
-                <div className="absolute -top-1 -right-1 h-4 w-4 bg-defense-crimson rounded-full border-2 border-white"></div>
+                <div className="absolute -top-1 -right-1 h-4 w-4 bg-military-maroon rounded-full border-2 border-military-white"></div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-primary-foreground military-precision">
+                <h1 className="text-2xl font-bold text-military-white military-precision">
                   ULINZI SPORTS COMPLEX
                 </h1>
-                <p className="text-sm text-defense-gold font-medium">KENYA DEFENCE FORCES FACILITY</p>
+                <p className="text-sm text-military-light-blue font-medium">KENYA DEFENCE FORCES FACILITY</p>
               </div>
             </div>
 
@@ -68,47 +68,47 @@ const Header = () => {
                 <NavigationMenuList className="space-x-8">
                   {/* Home */}
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
                       HOME
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   {/* About */}
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
                       ABOUT
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   {/* Events Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary-foreground hover:text-defense-gold transition-colors font-semibold military-precision">
+                    <NavigationMenuTrigger className="text-military-white hover:text-military-light-blue transition-colors font-semibold military-precision">
                       OPERATIONS <ChevronDown className="ml-1 h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="p-6 w-[550px] defense-glass border border-defense-gold/30 rounded-lg">
-                        <h3 className="font-bold text-lg mb-4 text-defense-navy">CURRENT OPERATIONS</h3>
+                      <div className="p-6 w-[550px] military-glass border border-military-light-blue/30 rounded-lg">
+                        <h3 className="font-bold text-lg mb-4 text-military-white">CURRENT OPERATIONS</h3>
                         <div className="grid gap-4">
                           {currentEvents.map((event, index) => (
-                            <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-defense-navy/10 transition-colors">
-                              <div className={`w-3 h-3 rounded-full mt-2 ${event.status === 'live' ? 'bg-defense-crimson animate-pulse' : 'bg-defense-gold'}`}></div>
+                            <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-military-light-blue/10 transition-colors">
+                              <div className={`w-3 h-3 rounded-full mt-2 ${event.status === 'live' ? 'bg-military-maroon animate-pulse' : 'bg-military-light-blue'}`}></div>
                               <div className="flex-1">
-                                <p className="font-semibold text-defense-navy military-precision">{event.title}</p>
-                                <div className="flex items-center space-x-4 text-sm text-defense-slate mt-1">
+                                <p className="font-semibold text-military-white military-precision">{event.title}</p>
+                                <div className="flex items-center space-x-4 text-sm text-military-light-blue mt-1">
                                   <span className="flex items-center"><Calendar className="h-3 w-3 mr-1" />{event.date}</span>
                                   <span className="flex items-center"><Clock className="h-3 w-3 mr-1" />{event.time}</span>
                                   <span className="flex items-center"><MapPin className="h-3 w-3 mr-1" />{event.venue}</span>
                                 </div>
                               </div>
                               {event.status === 'live' && (
-                                <span className="bg-defense-crimson text-white text-xs px-3 py-1 rounded-full font-bold">
+                                <span className="bg-military-maroon text-military-white text-xs px-3 py-1 rounded-full font-bold">
                                   LIVE
                                 </span>
                               )}
                             </div>
                           ))}
                         </div>
-                        <Button className="w-full mt-6 bg-defense-navy hover:bg-defense-slate text-white font-bold">
+                        <Button className="w-full mt-6 bg-military-black hover:bg-military-maroon text-military-white font-bold">
                           VIEW ALL OPERATIONS
                         </Button>
                       </div>
@@ -117,27 +117,27 @@ const Header = () => {
 
                   {/* Intelligence (News) Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary-foreground hover:text-defense-gold transition-colors font-semibold military-precision">
+                    <NavigationMenuTrigger className="text-military-white hover:text-military-light-blue transition-colors font-semibold military-precision">
                       INTELLIGENCE <ChevronDown className="ml-1 h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="p-6 w-[450px] defense-glass border border-defense-gold/30 rounded-lg">
-                        <h3 className="font-bold text-lg mb-4 text-defense-navy">LATEST INTELLIGENCE</h3>
+                      <div className="p-6 w-[450px] military-glass border border-military-light-blue/30 rounded-lg">
+                        <h3 className="font-bold text-lg mb-4 text-military-white">LATEST INTELLIGENCE</h3>
                         <div className="space-y-4">
                           {liveNews.map((item, index) => (
-                            <div key={index} className="border-l-4 border-defense-crimson pl-4 py-2 hover:bg-defense-navy/5 rounded-r-lg transition-colors">
+                            <div key={index} className="border-l-4 border-military-maroon pl-4 py-2 hover:bg-military-light-blue/5 rounded-r-lg transition-colors">
                               <div className="flex items-center justify-between">
-                                <span className={`text-xs px-3 py-1 rounded-full font-bold ${item.urgent ? 'bg-defense-crimson text-white' : 'bg-defense-gold text-defense-navy'}`}>
+                                <span className={`text-xs px-3 py-1 rounded-full font-bold ${item.urgent ? 'bg-military-maroon text-military-white' : 'bg-military-light-blue text-military-black'}`}>
                                   {item.category}
                                 </span>
-                                {item.urgent && <span className="text-xs text-defense-crimson font-bold">PRIORITY</span>}
+                                {item.urgent && <span className="text-xs text-military-maroon font-bold">PRIORITY</span>}
                               </div>
-                              <p className="font-semibold text-defense-navy mt-2 military-precision">{item.title}</p>
-                              <p className="text-sm text-defense-slate">{item.date}</p>
+                              <p className="font-semibold text-military-white mt-2 military-precision">{item.title}</p>
+                              <p className="text-sm text-military-light-blue">{item.date}</p>
                             </div>
                           ))}
                         </div>
-                        <Button variant="outline" className="w-full mt-6 border-defense-gold text-defense-navy hover:bg-defense-gold hover:text-defense-navy font-bold">
+                        <Button variant="outline" className="w-full mt-6 border-military-light-blue text-military-white hover:bg-military-light-blue hover:text-military-black font-bold">
                           ACCESS FULL BRIEFING
                         </Button>
                       </div>
@@ -146,19 +146,19 @@ const Header = () => {
 
                   {/* Personnel Zone */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-primary-foreground hover:text-defense-gold transition-colors font-semibold military-precision">
+                    <NavigationMenuTrigger className="text-military-white hover:text-military-light-blue transition-colors font-semibold military-precision">
                       PERSONNEL <ChevronDown className="ml-1 h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="p-6 w-[400px] defense-glass border border-defense-gold/30 rounded-lg">
-                        <h3 className="font-bold text-lg mb-4 text-defense-navy">PERSONNEL SERVICES</h3>
+                      <div className="p-6 w-[400px] military-glass border border-military-light-blue/30 rounded-lg">
+                        <h3 className="font-bold text-lg mb-4 text-military-white">PERSONNEL SERVICES</h3>
                         <div className="grid gap-3">
                           {fanZoneFeatures.map((item, index) => (
-                            <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-defense-navy/5 transition-colors cursor-pointer">
-                              <item.icon className="h-6 w-6 text-defense-gold mt-1" />
+                            <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-military-light-blue/5 transition-colors cursor-pointer">
+                              <item.icon className="h-6 w-6 text-military-light-blue mt-1" />
                               <div>
-                                <p className="font-semibold text-defense-navy military-precision">{item.title}</p>
-                                <p className="text-sm text-defense-slate">{item.description}</p>
+                                <p className="font-semibold text-military-white military-precision">{item.title}</p>
+                                <p className="text-sm text-military-light-blue">{item.description}</p>
                               </div>
                             </div>
                           ))}
@@ -169,19 +169,19 @@ const Header = () => {
 
                   {/* Simple Links */}
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
                       FACILITIES
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
                       BOOKING
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuLink className="text-primary-foreground hover:text-defense-gold transition-colors cursor-pointer font-semibold military-precision">
+                    <NavigationMenuLink className="text-military-white hover:text-military-light-blue transition-colors cursor-pointer font-semibold military-precision">
                       CONTACT
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -189,11 +189,11 @@ const Header = () => {
               </NavigationMenu>
 
               <div className="flex items-center space-x-4">
-                <Button variant="outline" size="sm" className="border-defense-gold text-primary-foreground hover:bg-defense-gold hover:text-defense-navy font-bold">
+                <Button variant="outline" size="sm" className="border-military-light-blue text-military-white hover:bg-military-light-blue hover:text-military-black font-bold">
                   PERSONNEL LOGIN
                 </Button>
                 <Link to="/admin">
-                  <Button size="sm" className="bg-defense-crimson hover:bg-defense-crimson/80 text-white font-bold">
+                  <Button size="sm" className="bg-military-maroon hover:bg-military-maroon/80 text-military-white font-bold">
                     COMMAND CENTER
                   </Button>
                 </Link>
@@ -203,26 +203,26 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="icon" className="text-primary-foreground">
+                <Button variant="ghost" size="icon" className="text-military-white">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80 bg-defense-navy text-primary-foreground">
+              <SheetContent side="right" className="w-80 bg-military-black text-military-white">
                 <nav className="flex flex-col space-y-6 mt-8">
-                  <a href="#" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">HOME</a>
-                  <a href="#" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">ABOUT</a>
-                  <a href="#events" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">OPERATIONS</a>
-                  <a href="#news" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">INTELLIGENCE</a>
-                  <a href="#personnel" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">PERSONNEL</a>
-                  <a href="#facilities" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">FACILITIES</a>
-                  <a href="#booking" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">BOOKING</a>
-                  <a href="#contact" className="text-lg font-semibold hover:text-defense-gold transition-colors military-precision">CONTACT</a>
-                  <div className="pt-6 border-t border-defense-gold/30">
-                    <Button variant="outline" className="w-full mb-3 border-defense-gold text-primary-foreground hover:bg-defense-gold hover:text-defense-navy font-bold">
+                  <a href="#" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">HOME</a>
+                  <a href="#" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">ABOUT</a>
+                  <a href="#events" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">OPERATIONS</a>
+                  <a href="#news" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">INTELLIGENCE</a>
+                  <a href="#personnel" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">PERSONNEL</a>
+                  <a href="#facilities" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">FACILITIES</a>
+                  <a href="#booking" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">BOOKING</a>
+                  <a href="#contact" className="text-lg font-semibold hover:text-military-light-blue transition-colors military-precision">CONTACT</a>
+                  <div className="pt-6 border-t border-military-light-blue/30">
+                    <Button variant="outline" className="w-full mb-3 border-military-light-blue text-military-white hover:bg-military-light-blue hover:text-military-black font-bold">
                       PERSONNEL LOGIN
                     </Button>
                     <Link to="/admin">
-                      <Button className="w-full bg-defense-crimson hover:bg-defense-crimson/80 font-bold">
+                      <Button className="w-full bg-military-maroon hover:bg-military-maroon/80 font-bold">
                         COMMAND CENTER
                       </Button>
                     </Link>
