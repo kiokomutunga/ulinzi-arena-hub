@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3%;
 
-    /* Stadium-Inspired Colors */
+    /* Military Stadium-Inspired Colors */
     --primary: 0 0% 3%; /* Deep Black */
     --primary-foreground: 0 0% 98%;
 
@@ -48,9 +48,9 @@
     --sidebar-ring: 210 100% 55%;
 
     /* Stadium Military Colors */
-    --stadium-black: 0 0% 3%;
-    --stadium-red: 0 85% 45%;
-    --stadium-blue: 210 100% 55%;
+    --stadium-primary: 0 0% 3%; /* Deep Black - Primary */
+    --stadium-secondary: 0 85% 45%; /* Stadium Red - Secondary */
+    --stadium-blue: 210 100% 55%; /* Stadium Blue - Accent */
     --stadium-white: 0 0% 98%;
     --stadium-neutral: 0 0% 45%;
   }
@@ -83,6 +83,10 @@
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 210 100% 55%;
+    
+    --stadium-primary: 0 0% 98%;
+    --stadium-secondary: 0 85% 45%;
+    --stadium-blue: 210 100% 55%;
   }
 }
 
@@ -99,13 +103,13 @@
 
 @layer utilities {
   .stadium-nav {
-    background: hsla(var(--stadium-black), 0.95);
+    background: hsla(var(--stadium-primary), 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid hsla(var(--stadium-blue), 0.3);
   }
   
   .stadium-gradient {
-    background: linear-gradient(135deg, hsl(var(--stadium-black)) 0%, hsl(var(--stadium-red)) 100%);
+    background: linear-gradient(135deg, hsl(var(--stadium-primary)) 0%, hsl(var(--stadium-secondary)) 100%);
   }
 
   .stadium-text {
@@ -121,11 +125,16 @@
   }
 
   .professional-shadow {
-    box-shadow: 0 4px 20px hsla(var(--stadium-black), 0.15);
+    box-shadow: 0 4px 20px hsla(var(--stadium-primary), 0.15);
   }
 
   .text-professional {
     letter-spacing: 0.025em;
     font-weight: 500;
+  }
+
+  .military-theme {
+    background: linear-gradient(135deg, hsl(var(--stadium-primary)) 0%, hsl(var(--stadium-secondary)) 100%);
+    color: hsl(var(--stadium-white));
   }
 }

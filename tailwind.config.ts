@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -62,9 +63,9 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Stadium-Inspired Colors
-				'stadium-black': 'hsl(var(--stadium-black))',
-				'stadium-red': 'hsl(var(--stadium-red))',
+				// Stadium-Military Colors
+				'stadium-primary': 'hsl(var(--stadium-primary))',
+				'stadium-secondary': 'hsl(var(--stadium-secondary))',
 				'stadium-blue': 'hsl(var(--stadium-blue))',
 				'stadium-white': 'hsl(var(--stadium-white))',
 				'stadium-neutral': 'hsl(var(--stadium-neutral))',
