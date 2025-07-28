@@ -9,6 +9,8 @@ import Booking from "./pages/Booking";
 import MyBookings from "./pages/MyBookings";
 import Facilities from "./pages/Facilities";
 import Gyms from "./pages/Gyms";
+import MainStadium from "./pages/MainStadium";
+import SwimmingPool from "./pages/SwimmingPool";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/my-bookings" element={<MyBookings />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/gyms" element={<Gyms />} />
+          <Route path="/main-stadium" element={<MainStadium />} />
+          <Route path="/swimming-pool" element={<SwimmingPool />} />
           <Route path="/admin" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

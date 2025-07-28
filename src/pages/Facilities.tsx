@@ -11,42 +11,48 @@ const Facilities = () => {
       capacity: '7,500 Seats',
       image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
       description: 'Our flagship stadium features a natural grass pitch, modern lighting systems, and seating for 7,500 spectators. Home to Ulinzi Stars FC and host to major football tournaments.',
-      features: ['Natural Grass Pitch', 'Modern Lighting', 'VIP Boxes', 'Media Center', 'Training Facilities']
+      features: ['Natural Grass Pitch', 'Modern Lighting', 'VIP Boxes', 'Media Center', 'Training Facilities'],
+      link: '/main-stadium'
     },
     {
       name: 'Indoor Basketball Arena',
       capacity: '1,000 Seats',
       image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
       description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.',
-      features: ['Professional Wooden Court', 'Advanced Sound System', 'Climate Control', 'Electronic Scoreboard', 'Player Facilities']
+      features: ['Professional Wooden Court', 'Advanced Sound System', 'Climate Control', 'Electronic Scoreboard', 'Player Facilities'],
+      link: '/booking'
     },
     {
       name: 'Olympic Swimming Pool',
       capacity: '8 Lanes',
       image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
       description: 'Competition-standard 50-meter pool with 8 lanes, diving boards, and electronic timing systems. Perfect for training and hosting swimming competitions.',
-      features: ['50-Meter Pool', '8 Competition Lanes', 'Diving Boards', 'Electronic Timing', 'Spectator Seating']
+      features: ['50-Meter Pool', '8 Competition Lanes', 'Diving Boards', 'Electronic Timing', 'Spectator Seating'],
+      link: '/swimming-pool'
     },
     {
       name: 'Tennis Courts',
       capacity: '4 Courts',
       image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
       description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.',
-      features: ['Professional Hard Courts', 'Modern Lighting', 'Spectator Seating', 'Equipment Storage', 'Court Maintenance']
+      features: ['Professional Hard Courts', 'Modern Lighting', 'Spectator Seating', 'Equipment Storage', 'Court Maintenance'],
+      link: '/booking'
     },
     {
       name: 'Fitness Center & Gym',
       capacity: 'Full Equipment',
       image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
       description: 'Fully equipped modern gym with cardio and strength training equipment. State-of-the-art facilities for military personnel and civilian fitness enthusiasts.',
-      features: ['Modern Cardio Equipment', 'Strength Training Area', 'Free Weights Section', 'Personal Training', 'Locker Rooms']
+      features: ['Modern Cardio Equipment', 'Strength Training Area', 'Free Weights Section', 'Personal Training', 'Locker Rooms'],
+      link: '/gyms'
     },
     {
       name: 'Athletics Track',
       capacity: '8 Lanes',
       image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
       description: 'Professional 400-meter track with 8 lanes, field event areas, and timing systems. Used for athletics training and competitions.',
-      features: ['400-Meter Track', '8 Competition Lanes', 'Field Event Areas', 'Electronic Timing', 'Warm-up Areas']
+      features: ['400-Meter Track', '8 Competition Lanes', 'Field Event Areas', 'Electronic Timing', 'Warm-up Areas'],
+      link: '/booking'
     }
   ];
 
@@ -97,10 +103,10 @@ const Facilities = () => {
                   </div>
                   
                   <button 
-                    onClick={() => navigate('/booking')}
+                    onClick={() => navigate(facility.link)}
                     className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
                   >
-                    Book This Facility
+                    Learn More
                   </button>
                 </div>
               </div>
