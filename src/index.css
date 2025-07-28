@@ -53,6 +53,12 @@
     --stadium-blue: 210 100% 55%; /* Stadium Blue - Accent */
     --stadium-white: 0 0% 98%;
     --stadium-neutral: 0 0% 45%;
+
+    /* Kenya Flag Colors */
+    --kenya-black: 0 0% 0%;
+    --kenya-red: 0 85% 45%;
+    --kenya-green: 135 60% 30%;
+    --kenya-white: 0 0% 100%;
   }
 
   .dark {

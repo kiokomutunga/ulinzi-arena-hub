@@ -69,6 +69,11 @@ export default {
 				'stadium-blue': 'hsl(var(--stadium-blue))',
 				'stadium-white': 'hsl(var(--stadium-white))',
 				'stadium-neutral': 'hsl(var(--stadium-neutral))',
+				// Kenya Flag Colors
+				'kenya-black': 'hsl(var(--kenya-black))',
+				'kenya-red': 'hsl(var(--kenya-red))',
+				'kenya-green': 'hsl(var(--kenya-green))',
+				'kenya-white': 'hsl(var(--kenya-white))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -87,12 +92,19 @@ export default {
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(10px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'bounce': {
+					'0%, 20%, 53%, 80%, 100%': { transform: 'translateY(0)' },
+					'40%, 43%': { transform: 'translateY(-30px)' },
+					'70%': { transform: 'translateY(-15px)' },
+					'90%': { transform: 'translateY(-4px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out'
+				'fade-in': 'fade-in 0.6s ease-out',
+				'bounce': 'bounce 2s infinite'
 			},
 			fontFamily: {
 				'sans': ['Inter', 'system-ui', 'sans-serif']

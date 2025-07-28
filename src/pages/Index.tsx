@@ -1,31 +1,587 @@
 
+import { useState } from "react";
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import StatisticsSection from "@/components/StatisticsSection";
-import QuickLinksSection from "@/components/QuickLinksSection";
-import LiveEventsSection from "@/components/LiveEventsSection";
-import EventScheduleSection from "@/components/EventScheduleSection";
-import EventsSection from "@/components/EventsSection";
-import FacilitiesSection from "@/components/FacilitiesSection";
-import NewsSection from "@/components/NewsSection";
-import BookingRequestForm from "@/components/BookingRequestForm";
-import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+  const [currentFacility, setCurrentFacility] = useState(0);
+  const [galleryFilter, setGalleryFilter] = useState('all');
+
+  const facilities = [
+    {
+      name: 'Main Stadium',
+      capacity: '7,500 Seats',
+      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      description: 'Our flagship stadium features a natural grass pitch, modern lighting systems, and seating for 7,500 spectators. Home to Ulinzi Stars FC and host to major football tournaments.'
+    },
+    {
+      name: 'Indoor Basketball Arena',
+      capacity: '1,000 Seats',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.'
+    },
+    {
+      name: 'Olympic Swimming Pool',
+      capacity: '8 Lanes',
+      image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      description: 'Competition-standard 50-meter pool with 8 lanes, diving boards, and electronic timing systems. Perfect for training and hosting swimming competitions.'
+    },
+    {
+      name: 'Tennis Courts',
+      capacity: '4 Courts',
+      image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.'
+    },
+    {
+      name: 'Fitness Center & Nature Trail',
+      capacity: 'Full Equipment',
+      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      description: 'Fully equipped modern gym with cardio and strength training equipment, plus scenic nature trail for outdoor fitness activities.'
+    }
+  ];
+
+  const galleryItems = [
+    {
+      type: 'photo',
+      category: 'stadium',
+      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      type: 'photo',
+      category: 'basketball',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      type: 'photo',
+      category: 'facilities',
+      image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+    },
+    {
+      type: 'photo',
+      category: 'events',
+      image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      type: 'photo',
+      category: 'facilities',
+      image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      type: 'photo',
+      category: 'stadium',
+      image: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=80'
+    }
+  ];
+
+  const filteredGallery = galleryFilter === 'all' ? galleryItems : galleryItems.filter(item => item.category === galleryFilter);
+
+  const nextFacility = () => {
+    setCurrentFacility((prev) => (prev + 1) % facilities.length);
+  };
+
+  const prevFacility = () => {
+    setCurrentFacility((prev) => (prev - 1 + facilities.length) % facilities.length);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <HeroSection />
-      <StatisticsSection />
-      <QuickLinksSection />
-      <LiveEventsSection />
-      <EventScheduleSection />
-      <EventsSection />
-      <FacilitiesSection />
-      <NewsSection />
-      <BookingRequestForm />
-      <CTASection />
+      
+      {/* Hero Banner Section */}
+      <div className="relative h-screen w-full overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`
+          }}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40" />
+        
+        <div className="relative z-10 flex h-full items-center justify-center">
+          <div className="text-center text-white px-8 max-w-4xl">
+            <h1 className="text-6xl font-bold mb-6 leading-tight">
+              Welcome to Ulinzi Sports Complex
+            </h1>
+            <p className="text-2xl mb-12 font-light opacity-90">
+              Elite Training. Top-tier Sports. Military Precision.
+            </p>
+            <div className="flex gap-6 justify-center">
+              <Button 
+                size="lg"
+                className="bg-kenya-red hover:bg-kenya-red/90 text-white text-lg px-8 py-6 font-semibold"
+                onClick={() => navigate('/facilities')}
+              >
+                Explore Facilities
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-kenya-red text-lg px-8 py-6 font-semibold"
+                onClick={() => navigate('/events')}
+              >
+                Upcoming Fixtures
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction Block */}
+      <div className="py-20 px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-8">
+              World-Class Military Sports Hub
+            </h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Ulinzi Sports Complex stands as Kenya's premier military sports facility, a testament to excellence and precision that defines the Kenya Defence Forces. Located in the heart of Lang'ata, Nairobi, this state-of-the-art complex was inaugurated in 2022 and has quickly established itself as a national sports powerhouse.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Built with military precision and designed for sporting excellence, the complex serves as home to some of Kenya's most celebrated teams including Ulinzi Stars FC and Ulinzi Warriors basketball team. With world-class facilities spanning across multiple sports disciplines, we host everything from local community events to international competitions.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                The 7,500-seater stadium, indoor arena, Olympic-size swimming pool, and comprehensive training facilities make this complex a beacon of sporting achievement in East Africa. Every element has been crafted to foster athletic excellence while maintaining the disciplined standards that the military is renowned for.
+              </p>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-kenya-red text-white p-8 rounded-lg">
+                <div className="grid grid-cols-2 gap-8">
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">7,500</div>
+                    <div className="text-sm opacity-90">Stadium Capacity</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">2022</div>
+                    <div className="text-sm opacity-90">Year Inaugurated</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">5+</div>
+                    <div className="text-sm opacity-90">Major Facilities</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">KDF</div>
+                    <div className="text-sm opacity-90">Military Excellence</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Facilities Carousel */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Premium Sports Facilities
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Experience world-class sporting infrastructure designed with military precision and built for champions
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentFacility * 100}%)` }}
+              >
+                {facilities.map((facility, index) => (
+                  <div key={index} className="w-full flex-shrink-0">
+                    <div className="max-w-4xl mx-auto">
+                      <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                        <div className="grid lg:grid-cols-2">
+                          <div className="relative h-96 lg:h-auto overflow-hidden">
+                            <img 
+                              src={facility.image} 
+                              alt={facility.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="p-12 flex flex-col justify-center">
+                            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                              {facility.name}
+                            </h3>
+                            <p className="text-xl text-kenya-red font-semibold mb-6">
+                              {facility.capacity}
+                            </p>
+                            <p className="text-gray-600 leading-relaxed">
+                              {facility.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button 
+              onClick={prevFacility}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300"
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button 
+              onClick={nextFacility}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300"
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            <div className="flex justify-center mt-8 space-x-2">
+              {facilities.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentFacility(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentFacility === index ? 'bg-kenya-red' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Photo & Video Gallery */}
+      <div className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Gallery
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Witness the action and excellence at Ulinzi Sports Complex
+            </p>
+            
+            <div className="flex justify-center space-x-4 mb-12">
+              <Button 
+                onClick={() => setGalleryFilter('all')}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  galleryFilter === 'all' 
+                    ? 'bg-kenya-red text-white' 
+                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                All
+              </Button>
+              <Button 
+                onClick={() => setGalleryFilter('stadium')}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  galleryFilter === 'stadium' 
+                    ? 'bg-kenya-red text-white' 
+                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Stadium
+              </Button>
+              <Button 
+                onClick={() => setGalleryFilter('basketball')}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  galleryFilter === 'basketball' 
+                    ? 'bg-kenya-red text-white' 
+                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Basketball
+              </Button>
+              <Button 
+                onClick={() => setGalleryFilter('facilities')}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  galleryFilter === 'facilities' 
+                    ? 'bg-kenya-red text-white' 
+                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Facilities
+              </Button>
+              <Button 
+                onClick={() => setGalleryFilter('events')}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  galleryFilter === 'events' 
+                    ? 'bg-kenya-red text-white' 
+                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Events
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredGallery.map((item, index) => (
+              <div 
+                key={index} 
+                className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                style={{ height: index % 3 === 1 ? '400px' : '300px' }}
+              >
+                <img 
+                  src={item.image} 
+                  alt="Gallery item"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button className="bg-kenya-red hover:bg-kenya-red/90 text-white px-8 py-4 text-lg font-semibold">
+              Load More
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Teams Section */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Our Championship Teams
+            </h2>
+            <p className="text-xl text-gray-600">
+              Home to Kenya's finest military sports teams
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="bg-gradient-to-br from-kenya-green/10 to-kenya-green/20 p-8 rounded-2xl">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-kenya-green rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">Ulinzi Stars FC</h3>
+                <p className="text-kenya-green font-semibold">Kenya Premier League Champions</p>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Ulinzi Stars FC represents the pinnacle of military football excellence in Kenya. With multiple league titles and cup victories, the team embodies the discipline and tactical precision of the Kenya Defence Forces. Playing their home matches at our 7,500-seater stadium, they continue to be a formidable force in Kenyan football.
+              </p>
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-kenya-green">3</div>
+                  <div className="text-sm text-gray-600">League Titles</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-kenya-green">5</div>
+                  <div className="text-sm text-gray-600">Cup Victories</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-kenya-green">2019</div>
+                  <div className="text-sm text-gray-600">Last Title</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">Ulinzi Warriors</h3>
+                <p className="text-orange-600 font-semibold">Kenya Basketball Federation League</p>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                The Ulinzi Warriors dominate the basketball courts with the same military precision that defines our institution. Playing in our state-of-the-art indoor arena, they have consistently been among Kenya's top basketball teams, showcasing exceptional teamwork and strategic gameplay that reflects military training principles.
+              </p>
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-orange-600">2</div>
+                  <div className="text-sm text-gray-600">League Titles</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-orange-600">4</div>
+                  <div className="text-sm text-gray-600">Playoff Appearances</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-orange-600">2023</div>
+                  <div className="text-sm text-gray-600">Last Championship</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Upcoming Events */}
+      <div className="py-20 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">
+              Upcoming Events
+            </h2>
+            <p className="text-xl text-gray-300">
+              Don't miss the action at Kenya's premier sports destination
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-kenya-green rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm text-gray-400">March 15, 2025</div>
+                  <div className="font-semibold">3:00 PM</div>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Ulinzi Stars vs AFC Leopards</h3>
+              <p className="text-gray-300 mb-4">Kenya Premier League showdown at our main stadium</p>
+              <Button className="bg-kenya-green hover:bg-kenya-green/90 text-white px-4 py-2 text-sm font-semibold">
+                Get Tickets
+              </Button>
+            </div>
+
+            <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm text-gray-400">March 22, 2025</div>
+                  <div className="font-semibold">7:00 PM</div>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Warriors vs KPA Basketball</h3>
+              <p className="text-gray-300 mb-4">Playoff semifinals at our indoor arena</p>
+              <Button className="bg-orange-600 hover:bg-orange-600/90 text-white px-4 py-2 text-sm font-semibold">
+                Get Tickets
+              </Button>
+            </div>
+
+            <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm text-gray-400">April 5, 2025</div>
+                  <div className="font-semibold">9:00 AM</div>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Kip Keino Classic 2025</h3>
+              <p className="text-gray-300 mb-4">International athletics meet featuring world-class athletes</p>
+              <Button className="bg-blue-600 hover:bg-blue-600/90 text-white px-4 py-2 text-sm font-semibold">
+                Get Tickets
+              </Button>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button className="bg-kenya-red hover:bg-kenya-red/90 text-white px-8 py-4 text-lg font-semibold">
+              View All Events
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Visit Ulinzi Sports Complex
+            </h2>
+            <p className="text-xl text-gray-600">
+              Experience world-class sports facilities and military excellence
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="bg-kenya-red/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-kenya-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Call Us</h3>
+              <p className="text-gray-600 mb-2">General Inquiries</p>
+              <p className="text-lg font-semibold text-kenya-red">+254 20 123 4567</p>
+              <p className="text-gray-600 mb-2 mt-4">Event Bookings</p>
+              <p className="text-lg font-semibold text-kenya-red">+254 20 765 4321</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-kenya-red/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-kenya-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Email Us</h3>
+              <p className="text-gray-600 mb-2">General Information</p>
+              <p className="text-lg font-semibold text-kenya-red">info@ulinzisports.co.ke</p>
+              <p className="text-gray-600 mb-2 mt-4">Event Hosting</p>
+              <p className="text-lg font-semibold text-kenya-red">events@ulinzisports.co.ke</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-kenya-red/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-kenya-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Visit Us</h3>
+              <p className="text-gray-600 mb-2">Ulinzi Sports Complex</p>
+              <p className="text-lg font-semibold text-gray-900">Lang'ata Road, Nairobi</p>
+              <p className="text-gray-600 mt-2">Open Daily: 6:00 AM - 10:00 PM</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+              Whether you're a sports fan, event organizer, or fitness enthusiast, Ulinzi Sports Complex welcomes you to experience the finest in military sports excellence. Join us in celebrating the spirit of competition, discipline, and national pride that defines our great institution.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                className="bg-kenya-red hover:bg-kenya-red/90 text-white px-8 py-4 text-lg font-semibold"
+                onClick={() => navigate('/booking')}
+              >
+                Plan Your Visit
+              </Button>
+              <Button 
+                variant="outline"
+                className="border-2 border-kenya-red text-kenya-red hover:bg-kenya-red hover:text-white px-8 py-4 text-lg font-semibold"
+                onClick={() => navigate('/booking')}
+              >
+                Host an Event
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );
