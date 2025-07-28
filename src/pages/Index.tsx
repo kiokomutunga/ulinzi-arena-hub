@@ -1,8 +1,6 @@
 
 import { useState } from "react";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -109,21 +107,18 @@ const Index = () => {
               Elite Training. Top-tier Sports. Military Precision.
             </p>
             <div className="flex gap-6 justify-center">
-              <Button 
-                size="lg"
-                className="bg-kenya-red hover:bg-kenya-red/90 text-white text-lg px-8 py-6 font-semibold"
-                onClick={() => navigate('/facilities')}
+              <button 
+                onClick={() => document.getElementById('facilities')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
               >
                 Explore Facilities
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-kenya-red text-lg px-8 py-6 font-semibold"
-                onClick={() => navigate('/events')}
+              </button>
+              <button 
+                onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-lg px-8 py-6 font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
               >
                 Upcoming Fixtures
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -152,7 +147,7 @@ const Index = () => {
             </div>
             
             <div className="relative">
-              <div className="bg-kenya-red text-white p-8 rounded-lg">
+              <div className="bg-red-600 text-white p-8 rounded-lg">
                 <div className="grid grid-cols-2 gap-8">
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2">7,500</div>
@@ -178,7 +173,7 @@ const Index = () => {
       </div>
 
       {/* Facilities Carousel */}
-      <div className="py-20 bg-white">
+      <div id="facilities" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
@@ -211,7 +206,7 @@ const Index = () => {
                             <h3 className="text-3xl font-bold text-gray-900 mb-4">
                               {facility.name}
                             </h3>
-                            <p className="text-xl text-kenya-red font-semibold mb-6">
+                            <p className="text-xl text-red-600 font-semibold mb-6">
                               {facility.capacity}
                             </p>
                             <p className="text-gray-600 leading-relaxed">
@@ -250,7 +245,7 @@ const Index = () => {
                   key={index}
                   onClick={() => setCurrentFacility(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentFacility === index ? 'bg-kenya-red' : 'bg-gray-300 hover:bg-gray-400'
+                    currentFacility === index ? 'bg-red-600' : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                 />
               ))}
@@ -260,7 +255,7 @@ const Index = () => {
       </div>
 
       {/* Photo & Video Gallery */}
-      <div className="py-20 bg-gray-50">
+      <div id="gallery" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
@@ -271,56 +266,56 @@ const Index = () => {
             </p>
             
             <div className="flex justify-center space-x-4 mb-12">
-              <Button 
+              <button 
                 onClick={() => setGalleryFilter('all')}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   galleryFilter === 'all' 
-                    ? 'bg-kenya-red text-white' 
+                    ? 'bg-red-600 text-white' 
                     : 'bg-white text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 All
-              </Button>
-              <Button 
+              </button>
+              <button 
                 onClick={() => setGalleryFilter('stadium')}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   galleryFilter === 'stadium' 
-                    ? 'bg-kenya-red text-white' 
+                    ? 'bg-red-600 text-white' 
                     : 'bg-white text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 Stadium
-              </Button>
-              <Button 
+              </button>
+              <button 
                 onClick={() => setGalleryFilter('basketball')}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   galleryFilter === 'basketball' 
-                    ? 'bg-kenya-red text-white' 
+                    ? 'bg-red-600 text-white' 
                     : 'bg-white text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 Basketball
-              </Button>
-              <Button 
+              </button>
+              <button 
                 onClick={() => setGalleryFilter('facilities')}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   galleryFilter === 'facilities' 
-                    ? 'bg-kenya-red text-white' 
+                    ? 'bg-red-600 text-white' 
                     : 'bg-white text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 Facilities
-              </Button>
-              <Button 
+              </button>
+              <button 
                 onClick={() => setGalleryFilter('events')}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   galleryFilter === 'events' 
-                    ? 'bg-kenya-red text-white' 
+                    ? 'bg-red-600 text-white' 
                     : 'bg-white text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 Events
-              </Button>
+              </button>
             </div>
           </div>
 
@@ -346,15 +341,15 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button className="bg-kenya-red hover:bg-kenya-red/90 text-white px-8 py-4 text-lg font-semibold">
+            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button">
               Load More
-            </Button>
+            </button>
           </div>
         </div>
       </div>
 
       {/* Teams Section */}
-      <div className="py-20 bg-white">
+      <div id="teams" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
@@ -366,30 +361,30 @@ const Index = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-gradient-to-br from-kenya-green/10 to-kenya-green/20 p-8 rounded-2xl">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-kenya-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-2">Ulinzi Stars FC</h3>
-                <p className="text-kenya-green font-semibold">Kenya Premier League Champions</p>
+                <p className="text-green-600 font-semibold">Kenya Premier League Champions</p>
               </div>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Ulinzi Stars FC represents the pinnacle of military football excellence in Kenya. With multiple league titles and cup victories, the team embodies the discipline and tactical precision of the Kenya Defence Forces. Playing their home matches at our 7,500-seater stadium, they continue to be a formidable force in Kenyan football.
               </p>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-kenya-green">3</div>
+                  <div className="text-2xl font-bold text-green-600">3</div>
                   <div className="text-sm text-gray-600">League Titles</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-kenya-green">5</div>
+                  <div className="text-2xl font-bold text-green-600">5</div>
                   <div className="text-sm text-gray-600">Cup Victories</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-kenya-green">2019</div>
+                  <div className="text-2xl font-bold text-green-600">2019</div>
                   <div className="text-sm text-gray-600">Last Title</div>
                 </div>
               </div>
@@ -428,7 +423,7 @@ const Index = () => {
       </div>
 
       {/* Upcoming Events */}
-      <div className="py-20 bg-gray-900 text-white">
+      <div id="events" className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
@@ -442,7 +437,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-kenya-green rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
@@ -454,9 +449,9 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Ulinzi Stars vs AFC Leopards</h3>
               <p className="text-gray-300 mb-4">Kenya Premier League showdown at our main stadium</p>
-              <Button className="bg-kenya-green hover:bg-kenya-green/90 text-white px-4 py-2 text-sm font-semibold">
+              <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button">
                 Get Tickets
-              </Button>
+              </button>
             </div>
 
             <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300">
@@ -473,9 +468,9 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Warriors vs KPA Basketball</h3>
               <p className="text-gray-300 mb-4">Playoff semifinals at our indoor arena</p>
-              <Button className="bg-orange-600 hover:bg-orange-600/90 text-white px-4 py-2 text-sm font-semibold">
+              <button className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 text-sm font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button">
                 Get Tickets
-              </Button>
+              </button>
             </div>
 
             <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300">
@@ -492,22 +487,22 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Kip Keino Classic 2025</h3>
               <p className="text-gray-300 mb-4">International athletics meet featuring world-class athletes</p>
-              <Button className="bg-blue-600 hover:bg-blue-600/90 text-white px-4 py-2 text-sm font-semibold">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button">
                 Get Tickets
-              </Button>
+              </button>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Button className="bg-kenya-red hover:bg-kenya-red/90 text-white px-8 py-4 text-lg font-semibold">
+            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button">
               View All Events
-            </Button>
+            </button>
           </div>
         </div>
       </div>
 
       {/* Contact Section */}
-      <div className="py-20 bg-white">
+      <div id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
@@ -520,34 +515,34 @@ const Index = () => {
 
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="bg-kenya-red/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-kenya-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Call Us</h3>
               <p className="text-gray-600 mb-2">General Inquiries</p>
-              <p className="text-lg font-semibold text-kenya-red">+254 20 123 4567</p>
+              <p className="text-lg font-semibold text-red-600">+254 20 123 4567</p>
               <p className="text-gray-600 mb-2 mt-4">Event Bookings</p>
-              <p className="text-lg font-semibold text-kenya-red">+254 20 765 4321</p>
+              <p className="text-lg font-semibold text-red-600">+254 20 765 4321</p>
             </div>
 
             <div className="text-center">
-              <div className="bg-kenya-red/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-kenya-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Email Us</h3>
               <p className="text-gray-600 mb-2">General Information</p>
-              <p className="text-lg font-semibold text-kenya-red">info@ulinzisports.co.ke</p>
+              <p className="text-lg font-semibold text-red-600">info@ulinzisports.co.ke</p>
               <p className="text-gray-600 mb-2 mt-4">Event Hosting</p>
-              <p className="text-lg font-semibold text-kenya-red">events@ulinzisports.co.ke</p>
+              <p className="text-lg font-semibold text-red-600">events@ulinzisports.co.ke</p>
             </div>
 
             <div className="text-center">
-              <div className="bg-kenya-red/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-kenya-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -564,25 +559,39 @@ const Index = () => {
               Whether you're a sports fan, event organizer, or fitness enthusiast, Ulinzi Sports Complex welcomes you to experience the finest in military sports excellence. Join us in celebrating the spirit of competition, discipline, and national pride that defines our great institution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="bg-kenya-red hover:bg-kenya-red/90 text-white px-8 py-4 text-lg font-semibold"
+              <button 
                 onClick={() => navigate('/booking')}
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
               >
                 Plan Your Visit
-              </Button>
-              <Button 
-                variant="outline"
-                className="border-2 border-kenya-red text-kenya-red hover:bg-kenya-red hover:text-white px-8 py-4 text-lg font-semibold"
+              </button>
+              <button 
                 onClick={() => navigate('/booking')}
+                className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
               >
                 Host an Event
-              </Button>
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <Footer />
+      {/* Footer */}
+      <div className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold mb-4">Ulinzi Sports Complex</h3>
+            <p className="text-gray-300">
+              Where military precision meets sporting excellence
+            </p>
+          </div>
+          <div className="border-t border-gray-700 pt-8">
+            <p className="text-gray-400">
+              © 2025 Ulinzi Sports Complex. Proudly serving Kenya with honor, discipline, and sporting excellence.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
