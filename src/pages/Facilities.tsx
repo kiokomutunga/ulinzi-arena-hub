@@ -56,6 +56,11 @@ const Facilities = () => {
     }
   ];
 
+  const handleFacilityClick = (link: string) => {
+    console.log('Navigating to:', link);
+    navigate(link);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -77,7 +82,7 @@ const Facilities = () => {
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {facilities.map((facility, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={facility.image} 
@@ -103,8 +108,8 @@ const Facilities = () => {
                   </div>
                   
                   <button 
-                    onClick={() => navigate(facility.link)}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
+                    onClick={() => handleFacilityClick(facility.link)}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md font-semibold transition-colors duration-300"
                   >
                     Learn More
                   </button>
@@ -125,13 +130,13 @@ const Facilities = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => navigate('/booking')}
-              className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
+              className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-md text-lg font-semibold transition-colors duration-300"
             >
               Book Now
             </button>
             <button 
               onClick={() => navigate('/')}
-              className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
+              className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300"
             >
               Back to Home
             </button>
