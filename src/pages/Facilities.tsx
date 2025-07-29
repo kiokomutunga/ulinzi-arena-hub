@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -20,7 +19,7 @@ const Facilities = () => {
       image: '/images/basketball.png',
       description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.',
       features: ['Professional Wooden Court', 'Advanced Sound System', 'Climate Control', 'Electronic Scoreboard', 'Player Facilities'],
-      link: '/booking'
+      link: '/basketball-arena'
     },
     {
       name: 'Olympic Swimming Pool',
@@ -36,7 +35,7 @@ const Facilities = () => {
       image: '/images/tennis.png',
       description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.',
       features: ['Professional Hard Courts', 'Modern Lighting', 'Spectator Seating', 'Equipment Storage', 'Court Maintenance'],
-      link: '/booking'
+      link: '/tennis-courts'
     },
     {
       name: 'Fitness Center & Gym',
@@ -52,7 +51,7 @@ const Facilities = () => {
       image: '/images/sideview.png',
       description: 'Professional 400-meter track with 8 lanes, field event areas, and timing systems. Used for athletics training and competitions.',
       features: ['400-Meter Track', '8 Competition Lanes', 'Field Event Areas', 'Electronic Timing', 'Warm-up Areas'],
-      link: '/booking'
+      link: '/athletics-track'
     }
   ];
 

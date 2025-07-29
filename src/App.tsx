@@ -11,6 +11,9 @@ import Facilities from "./pages/Facilities";
 import Gyms from "./pages/Gyms";
 import MainStadium from "./pages/MainStadium";
 import SwimmingPool from "./pages/SwimmingPool";
+import BasketballArena from "./pages/BasketballArena";
+import TennisCourts from "./pages/TennisCourts";
+import AthleticsTrack from "./pages/AthleticsTrack";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +33,9 @@ const App = () => (
           <Route path="/gyms" element={<Gyms />} />
           <Route path="/main-stadium" element={<MainStadium />} />
           <Route path="/swimming-pool" element={<SwimmingPool />} />
+          <Route path="/basketball-arena" element={<BasketballArena />} />
+          <Route path="/tennis-courts" element={<TennisCourts />} />
+          <Route path="/athletics-track" element={<AthleticsTrack />} />
           <Route path="/admin" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

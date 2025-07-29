@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import { useNavigate } from "react-router-dom";
 
@@ -35,23 +34,33 @@ const Gyms = () => {
   const services = [
     {
       title: 'Personal Training',
-      description: 'One-on-one training sessions with certified military fitness instructors.',
-      price: 'KSh 2,000/session'
+      description: 'One-on-one training sessions with certified military fitness instructors tailored to your specific goals.',
+      icon: '🏋️‍♂️'
     },
     {
       title: 'Group Classes',
-      description: 'High-intensity group fitness classes including boot camp and circuit training.',
-      price: 'KSh 500/class'
+      description: 'High-intensity group fitness classes including boot camp, circuit training, and specialized military workouts.',
+      icon: '👥'
     },
     {
       title: 'Military Fitness Programs',
-      description: 'Specialized programs designed for military personnel and fitness enthusiasts.',
-      price: 'KSh 8,000/month'
+      description: 'Specialized programs designed for military personnel and fitness enthusiasts seeking elite conditioning.',
+      icon: '🎖️'
     },
     {
       title: 'Nutrition Counseling',
-      description: 'Professional nutrition guidance to complement your fitness journey.',
-      price: 'KSh 1,500/session'
+      description: 'Professional nutrition guidance to complement your fitness journey and optimize performance.',
+      icon: '🥗'
+    },
+    {
+      title: 'Strength Assessment',
+      description: 'Comprehensive fitness assessments to track progress and customize training programs.',
+      icon: '📊'
+    },
+    {
+      title: 'Recovery Programs',
+      description: 'Injury prevention and recovery programs with physiotherapy and wellness support.',
+      icon: '🏥'
     }
   ];
 
@@ -113,22 +122,22 @@ const Gyms = () => {
         </div>
       </div>
 
-      {/* Services & Pricing */}
+      {/* Services Showcase */}
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Services & Pricing</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Fitness Services</h2>
             <p className="text-xl text-gray-600">
-              Professional fitness services tailored to your goals
+              Comprehensive fitness programs designed for excellence
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{service.description}</p>
-                <p className="text-red-600 font-bold text-lg">{service.price}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
@@ -139,60 +148,60 @@ const Gyms = () => {
       <div className="py-20 bg-red-600 text-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Membership Options</h2>
+            <h2 className="text-4xl font-bold mb-4">Join Our Fitness Community</h2>
             <p className="text-xl opacity-90">
-              Choose the plan that fits your fitness journey
+              Experience military-standard fitness training
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white bg-opacity-10 rounded-xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Basic</h3>
-              <p className="text-4xl font-bold mb-4">KSh 3,000<span className="text-lg">/month</span></p>
+              <h3 className="text-2xl font-bold mb-4">Basic Membership</h3>
               <ul className="text-left space-y-2 mb-6">
                 <li>• Gym access during regular hours</li>
                 <li>• Basic equipment usage</li>
                 <li>• Locker room access</li>
+                <li>• Fitness assessment</li>
               </ul>
               <button 
                 onClick={() => navigate('/booking')}
                 className="w-full bg-white text-red-600 hover:bg-gray-100 py-3 px-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
               >
-                Choose Basic
+                Get Started
               </button>
             </div>
 
             <div className="bg-white bg-opacity-20 rounded-xl p-8 text-center border-2 border-white">
-              <h3 className="text-2xl font-bold mb-4">Premium</h3>
-              <p className="text-4xl font-bold mb-4">KSh 5,000<span className="text-lg">/month</span></p>
+              <h3 className="text-2xl font-bold mb-4">Premium Membership</h3>
               <ul className="text-left space-y-2 mb-6">
                 <li>• 24/7 gym access</li>
                 <li>• All equipment usage</li>
                 <li>• Group classes included</li>
                 <li>• Personal training discount</li>
+                <li>• Nutrition consultation</li>
               </ul>
               <button 
                 onClick={() => navigate('/booking')}
                 className="w-full bg-white text-red-600 hover:bg-gray-100 py-3 px-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
               >
-                Choose Premium
+                Join Premium
               </button>
             </div>
 
             <div className="bg-white bg-opacity-10 rounded-xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Elite</h3>
-              <p className="text-4xl font-bold mb-4">KSh 8,000<span className="text-lg">/month</span></p>
+              <h3 className="text-2xl font-bold mb-4">Elite Membership</h3>
               <ul className="text-left space-y-2 mb-6">
                 <li>• All Premium benefits</li>
                 <li>• Personal training sessions</li>
-                <li>• Nutrition counseling</li>
+                <li>• Advanced programs</li>
                 <li>• Priority booking</li>
+                <li>• Recovery programs</li>
               </ul>
               <button 
                 onClick={() => navigate('/booking')}
                 className="w-full bg-white text-red-600 hover:bg-gray-100 py-3 px-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
               >
-                Choose Elite
+                Go Elite
               </button>
             </div>
           </div>
