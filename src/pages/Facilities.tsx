@@ -57,7 +57,7 @@ const Facilities = () => {
   ];
 
   const handleFacilityClick = (link: string) => {
-    console.log('Navigating to:', link);
+    console.log('Facility clicked, navigating to:', link);
     navigate(link);
   };
 
@@ -111,7 +111,7 @@ const Facilities = () => {
                     </ul>
                   </div>
                   
-                  <div className="text-center mt-4 py-2 px-4 bg-red-50 text-red-600 font-semibold rounded-md transition-colors duration-300">
+                  <div className="text-center mt-4 py-2 px-4 bg-red-50 text-red-600 font-semibold rounded-md transition-colors duration-300 hover:bg-red-100">
                     Click to Learn More
                   </div>
                 </div>
