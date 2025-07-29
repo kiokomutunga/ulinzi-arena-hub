@@ -1,6 +1,6 @@
 
 import Header from "@/components/Header";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Facilities = () => {
   const navigate = useNavigate();
@@ -56,21 +56,16 @@ const Facilities = () => {
     }
   ];
 
-  const handleFacilityClick = (link: string) => {
-    console.log('Facility clicked, navigating to:', link);
-    navigate(link);
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       {/* Hero Section */}
       <div className="relative h-96 bg-gradient-to-r from-red-600 to-red-800 text-white pt-20">
-        <div className="max-w-7xl mx-auto px-8 h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div>
-            <h1 className="text-5xl font-bold mb-4">Our Facilities</h1>
-            <p className="text-xl opacity-90">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Our Facilities</h1>
+            <p className="text-lg sm:text-xl opacity-90">
               World-class sports infrastructure designed with military precision
             </p>
           </div>
@@ -78,14 +73,14 @@ const Facilities = () => {
       </div>
 
       {/* Facilities Grid */}
-      <div className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {facilities.map((facility, index) => (
-              <div 
+              <Link 
                 key={index} 
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
-                onClick={() => handleFacilityClick(facility.link)}
+                to={facility.link}
+                className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -94,17 +89,17 @@ const Facilities = () => {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{facility.name}</h3>
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{facility.name}</h3>
                   <p className="text-red-600 font-semibold mb-3">{facility.capacity}</p>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{facility.description}</p>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">{facility.description}</p>
                   
                   <div className="mb-4">
                     <h4 className="font-semibold text-gray-900 mb-2">Features:</h4>
                     <ul className="text-sm text-gray-600 space-y-1">
                       {facility.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center">
-                          <span className="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                          <span className="w-2 h-2 bg-red-600 rounded-full mr-2 flex-shrink-0"></span>
                           {feature}
                         </li>
                       ))}
@@ -115,29 +110,29 @@ const Facilities = () => {
                     Click to Learn More
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </div>
 
       {/* CTA Section */}
-      <div className="py-20 bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Experience Excellence?</h2>
-          <p className="text-xl mb-8 opacity-90">
+      <div className="py-12 sm:py-16 lg:py-20 bg-red-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Experience Excellence?</h2>
+          <p className="text-lg sm:text-xl mb-8 opacity-90">
             Book your preferred facility and join the legacy of champions
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => navigate('/booking')}
-              className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-md text-lg font-semibold transition-colors duration-300"
+              className="bg-white text-red-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-md text-base sm:text-lg font-semibold transition-colors duration-300"
             >
               Book Now
             </button>
             <button 
               onClick={() => navigate('/')}
-              className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-md text-lg font-semibold transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-6 sm:px-8 py-3 sm:py-4 rounded-md text-base sm:text-lg font-semibold transition-all duration-300"
             >
               Back to Home
             </button>
