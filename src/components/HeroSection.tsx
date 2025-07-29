@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Play, Calendar, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -46,6 +46,30 @@ const HeroSection = () => {
       description: "Four professional courts with modern lighting and spectator seating.",
       image: "/images/tennis.png",
       cta: "Book Courts"
+    },
+    {
+      id: 6,
+      title: "Indoor Arena",
+      subtitle: "Multi-purpose indoor sports facility",
+      description: "Versatile indoor space for various sports and events.",
+      image: "/images/indoora.png",
+      cta: "Book Arena"
+    },
+    {
+      id: 7,
+      title: "VIP Experience",
+      subtitle: "Premium hospitality and viewing areas",
+      description: "Luxury seating and exclusive amenities for special events.",
+      image: "/images/vip.png",
+      cta: "VIP Packages"
+    },
+    {
+      id: 8,
+      title: "Stadium Views",
+      subtitle: "Spectacular venue from every angle",
+      description: "Impressive architecture and design showcasing military precision.",
+      image: "/images/sideview.png",
+      cta: "Virtual Tour"
     }
   ];
 
@@ -66,7 +90,7 @@ const HeroSection = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Static Background with Current Slide Image */}
+      {/* Auto-scrolling Background Images */}
       <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
@@ -80,25 +104,25 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center">
         <div className="text-center text-white px-8 max-w-4xl">
-          <h1 className="text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             {slides[currentSlide].title}
           </h1>
-          <p className="text-2xl mb-4 font-light opacity-90">
+          <p className="text-xl md:text-2xl mb-4 font-light opacity-90">
             {slides[currentSlide].subtitle}
           </p>
-          <p className="text-lg mb-12 opacity-80 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg mb-12 opacity-80 max-w-2xl mx-auto">
             {slides[currentSlide].description}
           </p>
-          <div className="flex gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
             <button 
               onClick={() => document.getElementById('facilities')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
+              className="bg-red-600 hover:bg-red-700 text-white text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
             >
               {slides[currentSlide].cta}
             </button>
             <button 
               onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-lg px-8 py-6 font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
+              className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
             >
               <Play className="w-4 h-4 mr-2 inline" />
               Watch Tour

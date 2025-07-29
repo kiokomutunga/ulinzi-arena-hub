@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
-import { useNavigate } from "react-router-dom";
+import HeroSection from "@/components/HeroSection";
+import { useNavigate, Link } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -12,31 +13,36 @@ const Index = () => {
       name: 'Main Stadium',
       capacity: '7,500 Seats',
       image: '/images/mainpitch.png',
-      description: 'Our flagship stadium features a natural grass pitch, modern lighting systems, and seating for 7,500 spectators. Home to Ulinzi Stars FC and host to major football tournaments.'
+      description: 'Our flagship stadium features a natural grass pitch, modern lighting systems, and seating for 7,500 spectators. Home to Ulinzi Stars FC and host to major football tournaments.',
+      link: '/main-stadium'
     },
     {
-      name: 'Indoor Basketball Arena',
+      name: 'Indoor Basketball Arena', 
       capacity: '1,000 Seats',
       image: '/images/basketball.png',
-      description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.'
+      description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.',
+      link: '/booking'
     },
     {
       name: 'Olympic Swimming Pool',
       capacity: '8 Lanes',
       image: '/images/swimmingpool.png',
-      description: 'Competition-standard 50-meter pool with 8 lanes, diving boards, and electronic timing systems. Perfect for training and hosting swimming competitions.'
+      description: 'Competition-standard 50-meter pool with 8 lanes, diving boards, and electronic timing systems. Perfect for training and hosting swimming competitions.',
+      link: '/swimming-pool'
     },
     {
       name: 'Tennis Courts',
       capacity: '4 Courts',
       image: '/images/tennis.png',
-      description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.'
+      description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.',
+      link: '/booking'
     },
     {
       name: 'Fitness Center & Nature Trail',
       capacity: 'Full Equipment',
       image: '/images/gym.png',
-      description: 'Fully equipped modern gym with cardio and strength training equipment, plus scenic nature trail for outdoor fitness activities.'
+      description: 'Fully equipped modern gym with cardio and strength training equipment, plus scenic nature trail for outdoor fitness activities.',
+      link: '/gyms'
     }
   ];
 
@@ -102,41 +108,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Banner Section */}
-      <div className="relative h-screen w-full overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/mainpitch.png')`
-          }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
-        
-        <div className="relative z-10 flex h-full items-center justify-center">
-          <div className="text-center text-white px-8 max-w-4xl">
-            <h1 className="text-6xl font-bold mb-6 leading-tight">
-              Welcome to Ulinzi Sports Complex
-            </h1>
-            <p className="text-2xl mb-12 font-light opacity-90">
-              Elite Training. Top-tier Sports. Military Precision.
-            </p>
-            <div className="flex gap-6 justify-center">
-              <button 
-                onClick={() => document.getElementById('facilities')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
-              >
-                Explore Facilities
-              </button>
-              <button 
-                onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-lg px-8 py-6 font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
-              >
-                Upcoming Fixtures
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section with Auto-scrolling Background */}
+      <HeroSection />
 
       {/* Introduction Block */}
       <div className="py-20 px-8 bg-gray-50">
@@ -207,13 +180,16 @@ const Index = () => {
                 {facilities.map((facility, index) => (
                   <div key={index} className="w-full flex-shrink-0">
                     <div className="max-w-4xl mx-auto">
-                      <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                      <Link 
+                        to={facility.link}
+                        className="block bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+                      >
                         <div className="grid lg:grid-cols-2">
                           <div className="relative h-96 lg:h-auto overflow-hidden">
                             <img 
                               src={facility.image} 
                               alt={facility.name}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             />
                           </div>
                           <div className="p-12 flex flex-col justify-center">
@@ -228,7 +204,7 @@ const Index = () => {
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 ))}
