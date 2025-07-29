@@ -12,31 +12,31 @@ const Index = () => {
     {
       name: 'Main Stadium',
       capacity: '7,500 Seats',
-      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/mainpitch.png',
       description: 'Our flagship stadium features a natural grass pitch, modern lighting systems, and seating for 7,500 spectators. Home to Ulinzi Stars FC and host to major football tournaments.'
     },
     {
       name: 'Indoor Basketball Arena',
       capacity: '1,000 Seats',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/basketball.png',
       description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.'
     },
     {
       name: 'Olympic Swimming Pool',
       capacity: '8 Lanes',
-      image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/swimmingpool.png',
       description: 'Competition-standard 50-meter pool with 8 lanes, diving boards, and electronic timing systems. Perfect for training and hosting swimming competitions.'
     },
     {
       name: 'Tennis Courts',
       capacity: '4 Courts',
-      image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/tennis.png',
       description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.'
     },
     {
       name: 'Fitness Center & Nature Trail',
       capacity: 'Full Equipment',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/gym.png',
       description: 'Fully equipped modern gym with cardio and strength training equipment, plus scenic nature trail for outdoor fitness activities.'
     }
   ];
@@ -93,7 +93,7 @@ const Index = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`
+            backgroundImage: `url('/images/mainpitch.png')`
           }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-40" />
