@@ -9,7 +9,7 @@ const Facilities = () => {
     {
       name: 'Main Stadium',
       capacity: '7,500 Seats',
-      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/mainpitch.png',
       description: 'Our flagship stadium features a natural grass pitch, modern lighting systems, and seating for 7,500 spectators. Home to Ulinzi Stars FC and host to major football tournaments.',
       features: ['Natural Grass Pitch', 'Modern Lighting', 'VIP Boxes', 'Media Center', 'Training Facilities'],
       link: '/main-stadium'
@@ -17,7 +17,7 @@ const Facilities = () => {
     {
       name: 'Indoor Basketball Arena',
       capacity: '1,000 Seats',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/basketball.png',
       description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.',
       features: ['Professional Wooden Court', 'Advanced Sound System', 'Climate Control', 'Electronic Scoreboard', 'Player Facilities'],
       link: '/booking'
@@ -25,7 +25,7 @@ const Facilities = () => {
     {
       name: 'Olympic Swimming Pool',
       capacity: '8 Lanes',
-      image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/swimmingpool.png',
       description: 'Competition-standard 50-meter pool with 8 lanes, diving boards, and electronic timing systems. Perfect for training and hosting swimming competitions.',
       features: ['50-Meter Pool', '8 Competition Lanes', 'Diving Boards', 'Electronic Timing', 'Spectator Seating'],
       link: '/swimming-pool'
@@ -33,7 +33,7 @@ const Facilities = () => {
     {
       name: 'Tennis Courts',
       capacity: '4 Courts',
-      image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/tennis.png',
       description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.',
       features: ['Professional Hard Courts', 'Modern Lighting', 'Spectator Seating', 'Equipment Storage', 'Court Maintenance'],
       link: '/booking'
@@ -41,7 +41,7 @@ const Facilities = () => {
     {
       name: 'Fitness Center & Gym',
       capacity: 'Full Equipment',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/gym.png',
       description: 'Fully equipped modern gym with cardio and strength training equipment. State-of-the-art facilities for military personnel and civilian fitness enthusiasts.',
       features: ['Modern Cardio Equipment', 'Strength Training Area', 'Free Weights Section', 'Personal Training', 'Locker Rooms'],
       link: '/gyms'
@@ -49,7 +49,7 @@ const Facilities = () => {
     {
       name: 'Athletics Track',
       capacity: '8 Lanes',
-      image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      image: '/images/sideview.png',
       description: 'Professional 400-meter track with 8 lanes, field event areas, and timing systems. Used for athletics training and competitions.',
       features: ['400-Meter Track', '8 Competition Lanes', 'Field Event Areas', 'Electronic Timing', 'Warm-up Areas'],
       link: '/booking'
@@ -82,7 +82,11 @@ const Facilities = () => {
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {facilities.map((facility, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+              <div 
+                key={index} 
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+                onClick={() => handleFacilityClick(facility.link)}
+              >
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={facility.image} 
@@ -107,12 +111,9 @@ const Facilities = () => {
                     </ul>
                   </div>
                   
-                  <button 
-                    onClick={() => handleFacilityClick(facility.link)}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md font-semibold transition-colors duration-300"
-                  >
-                    Learn More
-                  </button>
+                  <div className="text-center mt-4 py-2 px-4 bg-red-50 text-red-600 font-semibold rounded-md transition-colors duration-300">
+                    Click to Learn More
+                  </div>
                 </div>
               </div>
             ))}

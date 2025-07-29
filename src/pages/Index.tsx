@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import { useNavigate } from "react-router-dom";
@@ -45,32 +44,47 @@ const Index = () => {
     {
       type: 'photo',
       category: 'stadium',
-      image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'
+      image: '/images/mainpitch.png'
     },
     {
       type: 'photo',
       category: 'basketball',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80'
+      image: '/images/basketball.png'
     },
     {
       type: 'photo',
       category: 'facilities',
-      image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      type: 'photo',
-      category: 'events',
-      image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80'
+      image: '/images/gym.png'
     },
     {
       type: 'photo',
       category: 'facilities',
-      image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'
+      image: '/images/swimmingpool.png'
+    },
+    {
+      type: 'photo',
+      category: 'facilities',
+      image: '/images/tennis.png'
     },
     {
       type: 'photo',
       category: 'stadium',
-      image: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=80'
+      image: '/images/sideview.png'
+    },
+    {
+      type: 'photo',
+      category: 'facilities',
+      image: '/images/indoora.png'
+    },
+    {
+      type: 'photo',
+      category: 'events',
+      image: '/images/gate.png'
+    },
+    {
+      type: 'photo',
+      category: 'facilities',
+      image: '/images/vip.png'
     }
   ];
 
