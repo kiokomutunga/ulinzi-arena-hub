@@ -1,12 +1,13 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import NewsSection from "@/components/NewsSection";
 import { useNavigate, Link } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
   const [currentFacility, setCurrentFacility] = useState(0);
-  const [galleryFilter, setGalleryFilter] = useState('all');
 
   const facilities = [
     {
@@ -21,7 +22,7 @@ const Index = () => {
       capacity: '1,000 Seats',
       image: '/images/basketball.png',
       description: 'State-of-the-art indoor arena with professional wooden court, advanced sound system, and seating for 1,000 fans. Home court advantage for Ulinzi Warriors basketball team.',
-      link: '/booking'
+      link: '/basketball-arena'
     },
     {
       name: 'Olympic Swimming Pool',
@@ -35,7 +36,7 @@ const Index = () => {
       capacity: '4 Courts',
       image: '/images/tennis.png',
       description: 'Four professional hard courts with modern lighting and spectator seating. Ideal for tournaments, training, and recreational play.',
-      link: '/booking'
+      link: '/tennis-courts'
     },
     {
       name: 'Fitness Center & Nature Trail',
@@ -46,55 +47,13 @@ const Index = () => {
     }
   ];
 
-  const galleryItems = [
-    {
-      type: 'photo',
-      category: 'stadium',
-      image: '/images/mainpitch.png'
-    },
-    {
-      type: 'photo',
-      category: 'basketball',
-      image: '/images/basketball.png'
-    },
-    {
-      type: 'photo',
-      category: 'facilities',
-      image: '/images/gym.png'
-    },
-    {
-      type: 'photo',
-      category: 'facilities',
-      image: '/images/swimmingpool.png'
-    },
-    {
-      type: 'photo',
-      category: 'facilities',
-      image: '/images/tennis.png'
-    },
-    {
-      type: 'photo',
-      category: 'stadium',
-      image: '/images/sideview.png'
-    },
-    {
-      type: 'photo',
-      category: 'facilities',
-      image: '/images/indoora.png'
-    },
-    {
-      type: 'photo',
-      category: 'events',
-      image: '/images/gate.png'
-    },
-    {
-      type: 'photo',
-      category: 'facilities',
-      image: '/images/vip.png'
-    }
-  ];
-
-  const filteredGallery = galleryFilter === 'all' ? galleryItems : galleryItems.filter(item => item.category === galleryFilter);
+  // Auto-scroll facility cards every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFacility((prev) => (prev + 1) % facilities.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [facilities.length]);
 
   const nextFacility = () => {
     setCurrentFacility((prev) => (prev + 1) % facilities.length);
@@ -174,7 +133,7 @@ const Index = () => {
           <div className="relative">
             <div className="overflow-hidden">
               <div 
-                className="flex transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-1000 ease-in-out"
                 style={{ transform: `translateX(-${currentFacility * 100}%)` }}
               >
                 {facilities.map((facility, index) => (
@@ -213,7 +172,7 @@ const Index = () => {
 
             <button 
               onClick={prevFacility}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300 z-10"
             >
               <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -222,7 +181,7 @@ const Index = () => {
 
             <button 
               onClick={nextFacility}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300 z-10"
             >
               <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -235,7 +194,7 @@ const Index = () => {
                   key={index}
                   onClick={() => setCurrentFacility(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentFacility === index ? 'bg-red-600' : 'bg-gray-300 hover:bg-gray-400'
+                    currentFacility === index ? 'bg-red-600 w-6' : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                 />
               ))}
@@ -244,102 +203,8 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Photo & Video Gallery */}
-      <div id="gallery" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              Gallery
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Witness the action and excellence at Ulinzi Sports Complex
-            </p>
-            
-            <div className="flex justify-center space-x-4 mb-12">
-              <button 
-                onClick={() => setGalleryFilter('all')}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  galleryFilter === 'all' 
-                    ? 'bg-red-600 text-white' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100'
-                }`}
-              >
-                All
-              </button>
-              <button 
-                onClick={() => setGalleryFilter('stadium')}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  galleryFilter === 'stadium' 
-                    ? 'bg-red-600 text-white' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100'
-                }`}
-              >
-                Stadium
-              </button>
-              <button 
-                onClick={() => setGalleryFilter('basketball')}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  galleryFilter === 'basketball' 
-                    ? 'bg-red-600 text-white' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100'
-                }`}
-              >
-                Basketball
-              </button>
-              <button 
-                onClick={() => setGalleryFilter('facilities')}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  galleryFilter === 'facilities' 
-                    ? 'bg-red-600 text-white' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100'
-                }`}
-              >
-                Facilities
-              </button>
-              <button 
-                onClick={() => setGalleryFilter('events')}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  galleryFilter === 'events' 
-                    ? 'bg-red-600 text-white' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100'
-                }`}
-              >
-                Events
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredGallery.map((item, index) => (
-              <div 
-                key={index} 
-                className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
-                style={{ height: index % 3 === 1 ? '400px' : '300px' }}
-              >
-                <img 
-                  src={item.image} 
-                  alt="Gallery item"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                  </svg>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button">
-              Load More
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Teams Section */}
-      <div id="teams" className="py-20 bg-white">
+      <div id="teams" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
@@ -489,6 +354,11 @@ const Index = () => {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* News Section - Now integrated with Gallery */}
+      <div id="news">
+        <NewsSection />
       </div>
 
       {/* Contact Section */}
