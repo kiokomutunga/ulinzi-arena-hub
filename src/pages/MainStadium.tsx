@@ -14,7 +14,7 @@ const MainStadium = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`
+            backgroundImage: `url('/images/mainpitch.png')`
           }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50" />
@@ -60,20 +60,20 @@ const MainStadium = () => {
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             <div className="md:col-span-2">
               <img 
-                src="https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                src="/images/mainpitch.png"
                 alt="Main Stadium aerial view"
                 className="w-full h-80 object-cover rounded-lg shadow-lg"
               />
             </div>
             <div className="space-y-6">
               <img 
-                src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                alt="Stadium night view"
+                src="/images/sideview.png"
+                alt="Stadium side view"
                 className="w-full h-36 object-cover rounded-lg shadow-lg"
               />
               <img 
-                src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                alt="Stadium crowd"
+                src="/images/gate.png"
+                alt="Stadium entrance"
                 className="w-full h-36 object-cover rounded-lg shadow-lg"
               />
             </div>
@@ -90,7 +90,7 @@ const MainStadium = () => {
           <div className="mb-16">
             <div className="bg-green-50 p-8 rounded-lg mb-8">
               <img 
-                src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                src="/images/mainpitch.png"
                 alt="Football match at stadium"
                 className="w-full h-64 object-cover rounded-lg mb-6"
               />
@@ -105,8 +105,8 @@ const MainStadium = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                  alt="Football fans celebrating"
+                  src="/images/ulinziworriors.png"
+                  alt="Ulinzi team"
                   className="w-full h-80 object-cover rounded-lg shadow-lg"
                 />
               </div>
@@ -125,12 +125,12 @@ const MainStadium = () => {
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <img 
-                src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                src="/images/mainpitch.png"
                 alt="Athletics track"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
               <img 
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                src="/images/gym.png"
                 alt="Training session"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
