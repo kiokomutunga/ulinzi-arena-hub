@@ -46,7 +46,7 @@ const Header = () => {
             <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
               <i className="fas fa-shield-alt text-3xl text-red-600 mr-3"></i>
               <span className="text-xl font-bold text-gray-900">
-                Ulinzi Sports
+                Ulinzi Sports Complex
               </span>
             </div>
 
