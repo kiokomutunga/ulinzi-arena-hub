@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import NewsSection from "@/components/NewsSection";
@@ -45,6 +46,14 @@ const Index = () => {
       link: '/gyms'
     }
   ];
+
+  // Auto-scroll facility cards every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFacility((prev) => (prev + 1) % facilities.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [facilities.length]);
 
   const nextFacility = () => {
     setCurrentFacility((prev) => (prev + 1) % facilities.length);
@@ -124,7 +133,7 @@ const Index = () => {
           <div className="relative">
             <div className="overflow-hidden">
               <div 
-                className="flex transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-1000 ease-in-out"
                 style={{ transform: `translateX(-${currentFacility * 100}%)` }}
               >
                 {facilities.map((facility, index) => (
@@ -163,7 +172,7 @@ const Index = () => {
 
             <button 
               onClick={prevFacility}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300 z-10"
             >
               <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -172,7 +181,7 @@ const Index = () => {
 
             <button 
               onClick={nextFacility}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-4 rounded-full transition-all duration-300 z-10"
             >
               <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -185,7 +194,7 @@ const Index = () => {
                   key={index}
                   onClick={() => setCurrentFacility(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentFacility === index ? 'bg-red-600' : 'bg-gray-300 hover:bg-gray-400'
+                    currentFacility === index ? 'bg-red-600 w-6' : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                 />
               ))}
