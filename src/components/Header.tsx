@@ -44,7 +44,11 @@ const Header = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-              <i className="fas fa-shield-alt text-3xl text-red-600 mr-3"></i>
+              <img 
+                src="/images/logo.png" 
+                alt="Ulinzi Sports Complex Logo" 
+                className="h-12 w-12 mr-3 object-contain"
+              />
               <span className="text-xl font-bold text-gray-900">
                 Ulinzi Sports
               </span>
@@ -71,10 +75,10 @@ const Header = () => {
                 Events
               </button>
               <button
-                onClick={() => handleNavigation('#gallery')}
+                onClick={() => handleNavigation('#news')}
                 className="text-gray-600 hover:text-red-600 transition-colors duration-300"
               >
-                Gallery
+                News
               </button>
               <button
                 onClick={() => handleNavigation('#contact')}
@@ -121,7 +125,11 @@ const Header = () => {
           <div className="p-6">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center">
-                <i className="fas fa-shield-alt text-2xl text-red-600 mr-2"></i>
+                <img 
+                  src="/images/logo.png" 
+                  alt="Ulinzi Sports Complex Logo" 
+                  className="h-8 w-8 mr-2 object-contain"
+                />
                 <span className="text-lg font-bold text-gray-900">
                   Ulinzi Sports
                 </span>
@@ -153,10 +161,10 @@ const Header = () => {
                 Events
               </button>
               <button
-                onClick={() => handleNavigation('#gallery')}
+                onClick={() => handleNavigation('#news')}
                 className="block text-gray-600 hover:text-red-600 transition-colors duration-300"
               >
-                Gallery
+                News
               </button>
               <button
                 onClick={() => handleNavigation('#contact')}
