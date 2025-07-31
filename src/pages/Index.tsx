@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import NewsSection from "@/components/NewsSection";
+import VideoTourSection from "@/components/VideoTourSection";
 import { useNavigate, Link } from "react-router-dom";
 
 const Index = () => {
@@ -356,10 +356,13 @@ const Index = () => {
         </div>
       </div>
 
-      {/* News Section - Now integrated with Gallery */}
+      {/* News Section */}
       <div id="news">
         <NewsSection />
       </div>
+
+      {/* Video Tour Section */}
+      <VideoTourSection />
 
       {/* Contact Section */}
       <div id="contact" className="py-20 bg-white">

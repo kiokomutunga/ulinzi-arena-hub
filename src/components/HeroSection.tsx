@@ -87,6 +87,13 @@ const HeroSection = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  const scrollToVideoTour = () => {
+    const videoSection = document.querySelector('.video-tour-section');
+    if (videoSection) {
+      videoSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Auto-scrolling Background Images */}
@@ -120,7 +127,7 @@ const HeroSection = () => {
               {slides[currentSlide].cta}
             </button>
             <button 
-              onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={scrollToVideoTour}
               className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
             >
               <Play className="w-4 h-4 mr-2 inline" />
