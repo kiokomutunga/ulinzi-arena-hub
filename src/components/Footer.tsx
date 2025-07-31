@@ -72,13 +72,6 @@ const Footer = () => {
               <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
             </div>
           </div>
-          
-          <div className="flex justify-center space-x-4 mt-6">
-            <img src="/api/placeholder/40/25" alt="Visa" className="h-6" />
-            <img src="/api/placeholder/40/25" alt="Mastercard" className="h-6" />
-            <img src="/api/placeholder/40/25" alt="American Express" className="h-6" />
-            <img src="/api/placeholder/40/25" alt="Mpesa" className="h-6" />
-          </div>
         </div>
       </div>
     </footer>
