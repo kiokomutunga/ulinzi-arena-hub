@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
@@ -11,7 +12,6 @@ const HeroSection = () => {
       title: "World-Class Sports Facility",
       subtitle: "Experience excellence at Kenya's premier defence sports complex",
       description: "State-of-the-art facilities for professional sports, training, and community events.",
-      image: "/images/mainpitch.png",
       cta: "Explore Facilities"
     },
     {
@@ -19,7 +19,6 @@ const HeroSection = () => {
       title: "Premier Sports Events",
       subtitle: "Host to national and international competitions",
       description: "Witness thrilling matches and competitions in our professional-grade venues.",
-      image: "/images/basketball.png",
       cta: "View Events"
     },
     {
@@ -27,7 +26,6 @@ const HeroSection = () => {
       title: "Professional Training Ground",
       subtitle: "Elite training facilities for defence personnel and athletes",
       description: "Advanced equipment and facilities designed for peak performance and excellence.",
-      image: "/images/gym.png",
       cta: "Book Training"
     },
     {
@@ -35,7 +33,6 @@ const HeroSection = () => {
       title: "Olympic Swimming Pool",
       subtitle: "Competition-standard aquatic facilities",
       description: "50-meter pool with 8 lanes, perfect for training and competitions.",
-      image: "/images/swimmingpool.png",
       cta: "Book Swimming"
     },
     {
@@ -43,7 +40,6 @@ const HeroSection = () => {
       title: "Tennis Excellence",
       subtitle: "Professional tennis courts for champions",
       description: "Four professional courts with modern lighting and spectator seating.",
-      image: "/images/tennis.png",
       cta: "Book Courts"
     },
     {
@@ -51,7 +47,6 @@ const HeroSection = () => {
       title: "Indoor Arena",
       subtitle: "Multi-purpose indoor sports facility",
       description: "Versatile indoor space for various sports and events.",
-      image: "/images/indoora.png",
       cta: "Book Arena"
     },
     {
@@ -59,7 +54,6 @@ const HeroSection = () => {
       title: "VIP Experience",
       subtitle: "Premium hospitality and viewing areas",
       description: "Luxury seating and exclusive amenities for special events.",
-      image: "/images/vip.png",
       cta: "VIP Packages"
     },
     {
@@ -67,7 +61,6 @@ const HeroSection = () => {
       title: "Stadium Views",
       subtitle: "Spectacular venue from every angle",
       description: "Impressive architecture and design showcasing military precision.",
-      image: "/images/sideview.png",
       cta: "Virtual Tour"
     }
   ];
@@ -96,15 +89,18 @@ const HeroSection = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Auto-scrolling Background Images */}
+      {/* Video Background */}
       <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
-          style={{
-            backgroundImage: `url('${slides[currentSlide].image}')`
-          }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/images/tour.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
       </div>
 
       {/* Content */}
