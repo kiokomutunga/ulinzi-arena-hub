@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -72,14 +71,6 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   const scrollToVideoTour = () => {
     const videoSection = document.querySelector('.video-tour-section');
     if (videoSection) {
@@ -105,65 +96,32 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center">
-        <div className="text-center text-white px-8 max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+        <div className="text-center text-white px-4 sm:px-8 max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             {slides[currentSlide].title}
           </h1>
-          <p className="text-xl md:text-2xl mb-4 font-light opacity-90">
+          <p className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 font-light opacity-90">
             {slides[currentSlide].subtitle}
           </p>
-          <p className="text-base md:text-lg mb-12 opacity-80 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg mb-8 sm:mb-12 opacity-80 max-w-2xl mx-auto">
             {slides[currentSlide].description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
             <button 
               onClick={() => document.getElementById('facilities')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-red-600 hover:bg-red-700 text-white text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap !rounded-button"
+              className="bg-red-600 hover:bg-red-700 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 md:py-6 font-semibold transition-colors duration-300 cursor-pointer whitespace-nowrap rounded-lg"
             >
               {slides[currentSlide].cta}
             </button>
             <button 
               onClick={scrollToVideoTour}
-              className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap !rounded-button"
+              className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 md:py-6 font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap rounded-lg flex items-center justify-center gap-2"
             >
-              <Play className="w-4 h-4 mr-2 inline" />
+              <Play className="w-4 h-4" />
               Watch Tour
             </button>
           </div>
         </div>
-      </div>
-
-      {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={prevSlide}
-          className="bg-stadium-black/60 hover:bg-stadium-black/80 text-white backdrop-blur-sm"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </Button>
-        
-        <div className="flex space-x-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`h-2 rounded-full transition-all ${
-                index === currentSlide ? "bg-red-600 w-6" : "bg-white/50 w-2"
-              }`}
-            />
-          ))}
-        </div>
-        
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={nextSlide}
-          className="bg-stadium-black/60 hover:bg-stadium-black/80 text-white backdrop-blur-sm"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </Button>
       </div>
     </div>
   );

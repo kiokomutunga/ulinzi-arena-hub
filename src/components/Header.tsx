@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,157 +40,167 @@ const Header = () => {
   return (
     <>
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 shadow-md z-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-center justify-between h-20">
+      <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-sm shadow-md z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
             <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
               <img 
                 src="/images/logo.png" 
                 alt="Ulinzi Sports Complex Logo" 
-                className="h-12 w-12 mr-3 object-contain"
+                className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 mr-2 sm:mr-3 object-contain"
               />
-              <span className="text-xl font-bold text-gray-900">
-                Ulinzi Sports Complex
+              <span className="text-sm sm:text-lg lg:text-xl font-bold text-gray-900">
+                <span className="hidden sm:inline">Ulinzi Sports Complex</span>
+                <span className="sm:hidden">Ulinzi Sports</span>
               </span>
             </div>
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* Desktop Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
               <button
                 onClick={() => handleNavigation('#facilities')}
-                className="text-gray-600 hover:text-red-600 transition-colors duration-300"
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium"
               >
                 Facilities
               </button>
               <button
                 onClick={() => handleNavigation('#teams')}
-                className="text-gray-600 hover:text-red-600 transition-colors duration-300"
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium"
               >
                 Teams
               </button>
               <button
                 onClick={() => handleNavigation('#events')}
-                className="text-gray-600 hover:text-red-600 transition-colors duration-300"
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium"
               >
                 Events
               </button>
               <button
                 onClick={() => handleNavigation('#news')}
-                className="text-gray-600 hover:text-red-600 transition-colors duration-300"
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium"
               >
                 News
               </button>
               <button
                 onClick={() => handleNavigation('#contact')}
-                className="text-gray-600 hover:text-red-600 transition-colors duration-300"
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium"
               >
                 Contact
               </button>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* Desktop CTA Buttons */}
+            <div className="hidden lg:flex items-center space-x-4">
               <button 
                 onClick={() => navigate('/my-bookings')}
-                className="text-red-600 hover:text-red-700 font-semibold whitespace-nowrap !rounded-button"
+                className="text-red-600 hover:text-red-700 font-semibold whitespace-nowrap rounded-lg px-4 py-2 transition-colors"
               >
                 Sign In
               </button>
               <button 
                 onClick={() => navigate('/booking')}
-                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 font-semibold transition-colors duration-300 whitespace-nowrap !rounded-button"
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 font-semibold transition-colors duration-300 whitespace-nowrap rounded-lg"
               >
                 Book Facility
               </button>
             </div>
 
+            {/* Tablet CTA Buttons */}
+            <div className="hidden md:flex lg:hidden items-center space-x-3">
+              <button 
+                onClick={() => navigate('/my-bookings')}
+                className="text-red-600 hover:text-red-700 font-semibold text-sm px-3 py-2 rounded-lg transition-colors"
+              >
+                Sign In
+              </button>
+              <button 
+                onClick={() => navigate('/booking')}
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 font-semibold text-sm transition-colors duration-300 rounded-lg"
+              >
+                Book
+              </button>
+            </div>
+
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <button
                 onClick={toggleMobileMenu}
-                className="text-gray-600 hover:text-red-600 transition-colors duration-300"
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 p-2"
+                aria-label="Toggle menu"
               >
-                <i className="fas fa-bars text-2xl"></i>
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Tablet Navigation Menu */}
+        <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:block lg:hidden bg-white border-t shadow-lg`}>
+          <div className="px-4 py-4">
+            <div className="flex flex-wrap justify-center gap-4 mb-4">
+              <button
+                onClick={() => handleNavigation('#facilities')}
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium px-3 py-2 rounded-lg"
+              >
+                Facilities
+              </button>
+              <button
+                onClick={() => handleNavigation('#teams')}
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium px-3 py-2 rounded-lg"
+              >
+                Teams
+              </button>
+              <button
+                onClick={() => handleNavigation('#events')}
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium px-3 py-2 rounded-lg"
+              >
+                Events
+              </button>
+              <button
+                onClick={() => handleNavigation('#news')}
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium px-3 py-2 rounded-lg"
+              >
+                News
+              </button>
+              <button
+                onClick={() => handleNavigation('#contact')}
+                className="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium px-3 py-2 rounded-lg"
+              >
+                Contact
+              </button>
+            </div>
+            
+            {/* Mobile CTA Buttons */}
+            <div className="md:hidden flex flex-col space-y-3">
+              <button 
+                onClick={() => navigate('/my-bookings')}
+                className="w-full text-red-600 hover:text-red-700 font-semibold py-3 border border-red-600 rounded-lg transition-colors"
+              >
+                Sign In
+              </button>
+              <button 
+                onClick={() => navigate('/booking')}
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 font-semibold transition-colors duration-300 rounded-lg"
+              >
+                Book Facility
               </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Overlay */}
       <div
-        className={`fixed inset-0 bg-gray-900 bg-opacity-50 z-40 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-      >
-        <div className="bg-white h-full w-64 shadow-xl">
-          <div className="p-6">
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center">
-                <img 
-                  src="/images/logo.png" 
-                  alt="Ulinzi Sports Complex Logo" 
-                  className="h-8 w-8 mr-2 object-contain"
-                />
-                <span className="text-lg font-bold text-gray-900">
-                  Ulinzi Sports
-                </span>
-              </div>
-              <button
-                onClick={toggleMobileMenu}
-                className="text-gray-600 hover:text-red-600"
-              >
-                <i className="fas fa-times text-2xl"></i>
-              </button>
-            </div>
-            <div className="space-y-4">
-              <button
-                onClick={() => handleNavigation('#facilities')}
-                className="block text-gray-600 hover:text-red-600 transition-colors duration-300"
-              >
-                Facilities
-              </button>
-              <button
-                onClick={() => handleNavigation('#teams')}
-                className="block text-gray-600 hover:text-red-600 transition-colors duration-300"
-              >
-                Teams
-              </button>
-              <button
-                onClick={() => handleNavigation('#events')}
-                className="block text-gray-600 hover:text-red-600 transition-colors duration-300"
-              >
-                Events
-              </button>
-              <button
-                onClick={() => handleNavigation('#news')}
-                className="block text-gray-600 hover:text-red-600 transition-colors duration-300"
-              >
-                News
-              </button>
-              <button
-                onClick={() => handleNavigation('#contact')}
-                className="block text-gray-600 hover:text-red-600 transition-colors duration-300"
-              >
-                Contact
-              </button>
-              <div className="pt-4 space-y-4">
-                <button 
-                  onClick={() => navigate('/my-bookings')}
-                  className="w-full text-red-600 hover:text-red-700 font-semibold py-2 whitespace-nowrap !rounded-button"
-                >
-                  Sign In
-                </button>
-                <button 
-                  onClick={() => navigate('/booking')}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-2 font-semibold transition-colors duration-300 whitespace-nowrap !rounded-button"
-                >
-                  Book Facility
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        className={`fixed inset-0 bg-gray-900 bg-opacity-50 z-40 transition-opacity duration-300 lg:hidden ${
+          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={toggleMobileMenu}
+      />
     </>
   );
 };
